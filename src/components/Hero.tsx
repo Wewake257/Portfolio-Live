@@ -1,6 +1,5 @@
 import { ArrowRight, Download, Mail } from 'lucide-react';
 import heroBg from '@/assets/hero-bg.jpg';
-import profileImg from '@/assets/profile.png';
 
 const Hero = () => {
   return (
@@ -59,7 +58,7 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Profile Image */}
+          {/* Profile Image Space */}
           <div className="flex justify-center lg:justify-end animate-fade-up animation-delay-400">
             <div className="relative">
               {/* Decorative rings */}
@@ -68,12 +67,11 @@ const Hero = () => {
               
               {/* Profile container */}
               <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full glass-card flex items-center justify-center overflow-hidden gradient-border">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={profileImg} 
-                    alt="Vivek Kumar - Data Analyst"
-                    className="w-full h-full object-cover object-top scale-125"
-                  />
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <span className="text-6xl md:text-7xl font-bold gradient-text">VK</span>
+                    <p className="text-muted-foreground text-sm mt-2">Profile Picture</p>
+                  </div>
                 </div>
               </div>
               
