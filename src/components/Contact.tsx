@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE_ID = 'service_i2rkrdc';
+const EMAILJS_TEMPLATE_ID = 'template_zymdzoc';
+const EMAILJS_PUBLIC_KEY = '56b5YVFp8XhtaL6ip';
 
 const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,22 +19,37 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formRef.current) return;
+    
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      );
+      
+      setIsSubmitted(true);
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: '', email: '', message: '' });
+      }, 3000);
+    } catch (error) {
+      toast({
+        title: "Failed to send",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -149,7 +170,7 @@ const Contact = () => {
               Send a Message
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name
