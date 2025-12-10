@@ -1,6 +1,9 @@
 import { ExternalLink, Github, BarChart3, Code, PieChart, Map, Database } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Projects = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  
   const featuredProject = {
     title: 'Fulki Communication Pvt. Ltd – Barbeque Nation',
     year: '2023',
@@ -60,7 +63,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section ref={ref as React.RefObject<HTMLElement>} id="projects" className={`py-24 relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="glow-orb w-96 h-96 -bottom-48 -right-48 animate-glow-pulse" style={{ background: 'radial-gradient(circle, hsl(172 66% 50%) 0%, transparent 70%)' }} />
       
       <div className="container mx-auto px-6 relative z-10">
