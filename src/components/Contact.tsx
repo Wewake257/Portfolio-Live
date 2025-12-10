@@ -1,11 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
-import emailjs from '@emailjs/browser';
-
-const EMAILJS_SERVICE_ID = 'service_i2rkrdc';
-const EMAILJS_TEMPLATE_ID = 'template_3o3wz3a';
-const EMAILJS_PUBLIC_KEY = '56b5YVFp8XhtaL6ip';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,57 +11,24 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  useEffect(() => {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-  }, []);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      toast({
-        title: "Please fill all fields",
-        description: "All fields are required.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsSubmitting(true);
     
-    try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_name: 'Vivek Kumar',
-        }
-      );
-      
-      setIsSubmitted(true);
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({ name: '', email: '', message: '' });
-      }, 3000);
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      toast({
-        title: "Failed to send message",
-        description: "Please try again or contact me directly via email.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    toast({
+      title: "Message sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+    
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: '', email: '', message: '' });
+    }, 3000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
