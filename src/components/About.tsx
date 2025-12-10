@@ -1,6 +1,9 @@
 import { MapPin, GraduationCap, Briefcase, BarChart3, FileSpreadsheet, Code, Map, Palette } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const About = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  
   const education = [
     { degree: 'M.Sc. Analytics', institution: 'TISS Mumbai', year: '2025–27', icon: GraduationCap },
     { degree: 'B.Sc. Hotel & Hospitality', institution: 'AIHM Chandigarh', year: '2019–22 • 74%', icon: GraduationCap },
@@ -18,7 +21,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative">
+    <section ref={ref as React.RefObject<HTMLElement>} id="about" className={`py-24 relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="glow-orb w-64 h-64 top-1/2 -left-32 animate-glow-pulse" />
       
       <div className="container mx-auto px-6 relative z-10">

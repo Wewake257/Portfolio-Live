@@ -8,8 +8,11 @@ import {
   FileText, 
   Map 
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Services = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  
   const services = [
     {
       icon: ClipboardCheck,
@@ -88,7 +91,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-24 relative">
+    <section ref={ref as React.RefObject<HTMLElement>} id="services" className={`py-24 relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="glow-orb w-80 h-80 top-1/3 -left-40 animate-glow-pulse" />
       
       <div className="container mx-auto px-6 relative z-10">

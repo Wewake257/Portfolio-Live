@@ -2,12 +2,14 @@ import { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const EMAILJS_SERVICE_ID = 'service_i2rkrdc';
 const EMAILJS_TEMPLATE_ID = 'template_zymdzoc';
 const EMAILJS_PUBLIC_KEY = '56b5YVFp8XhtaL6ip';
 
 const Contact = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -96,7 +98,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative">
+    <section ref={sectionRef as React.RefObject<HTMLElement>} id="contact" className={`py-24 relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="glow-orb w-72 h-72 top-0 left-1/2 -translate-x-1/2 animate-glow-pulse" />
       
       <div className="container mx-auto px-6 relative z-10">

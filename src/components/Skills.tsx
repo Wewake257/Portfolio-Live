@@ -12,8 +12,11 @@ import {
   Handshake, 
   Sparkles 
 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Skills = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  
   const skillCategories = [
     {
       title: 'Data & Analytics Tools',
@@ -93,7 +96,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-24 relative">
+    <section ref={ref as React.RefObject<HTMLElement>} id="skills" className={`py-24 relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="glow-orb w-72 h-72 bottom-0 right-0 animate-glow-pulse" style={{ background: 'radial-gradient(circle, hsl(260 60% 50%) 0%, transparent 70%)' }} />
       
       <div className="container mx-auto px-6 relative z-10">
