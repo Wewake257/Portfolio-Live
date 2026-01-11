@@ -5,10 +5,8 @@ const About = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
   
   const education = [
-    { degree: 'M.Sc. Analytics', institution: 'TISS Mumbai', year: '2025–27', icon: GraduationCap },
-    { degree: 'B.Sc. Hotel & Hospitality', institution: 'AIHM Chandigarh', year: '2019–22 • 74%', icon: GraduationCap },
-    { degree: 'Higher Secondary', institution: 'Little Scholars, Kashipur', year: '74%', icon: GraduationCap },
-    { degree: 'Secondary School', institution: 'Little Scholars, Kashipur', year: '8.2 CGPA', icon: GraduationCap },
+    { degree: 'M.Sc. in Analytics', institution: 'Tata Institute of Social Sciences, Mumbai', year: '2025–2027 (Pursuing)', icon: GraduationCap },
+    { degree: 'B.Sc. in Hotel & Hospitality Administration', institution: 'AIHM Chandigarh', year: '74%', icon: GraduationCap },
   ];
 
   const whatIDo = [
@@ -63,7 +61,7 @@ const About = () => {
             </div>
             
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              I am on an exciting transition from HR/L&D into Data Analytics. My background in hospitality and human resources has given me unique insights into people management and organizational dynamics, which I now combine with analytical skills to drive data-informed decisions.
+              Aspiring Data Science Intern with a strong foundation in Human Resources and Learning & Development. Currently pursuing an M.Sc. in Analytics at TISS Mumbai. Experienced in Python, SQL, Power BI, and Streamlit, with hands-on work in HR attrition modeling, workforce analytics, and prescriptive insights. Adept at translating complex data into actionable business recommendations through a people-focused, data-driven approach.
             </p>
           </div>
           
