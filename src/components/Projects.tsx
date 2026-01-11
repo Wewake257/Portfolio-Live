@@ -4,17 +4,28 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 const Projects = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
   
-  const featuredProject = {
-    title: 'Fulki Communication Pvt. Ltd – Barbeque Nation',
-    year: '2023',
-    description: 'Comprehensive HR and L&D transformation project for a major hospitality chain.',
-    achievements: [
-      'Restructured onboarding and induction processes with next-gen learning modules',
-      'Designed SOPs and improved communication flow across 4 regions',
-      'Reduced paperwork by 30% using Excel, Canva, and Power BI',
-    ],
-    tags: ['HR Analytics', 'Power BI', 'Excel', 'Canva', 'Process Optimization'],
-  };
+  const featuredProjects = [
+    {
+      title: 'OrgaKnow – Attrition Intelligence Platform',
+      year: '2025',
+      description: 'End-to-end HR analytics and machine learning project.',
+      achievements: [
+        'Performed EDA, feature engineering, and attrition risk prediction',
+        'Built retention recommendation logic',
+      ],
+      tags: ['Python', 'Pandas', 'Streamlit', 'Gradio', 'Machine Learning'],
+    },
+    {
+      title: 'Fulki Communication Pvt Ltd – BBQ Nation',
+      year: '2023',
+      description: 'Rebuilt onboarding and induction workflows.',
+      achievements: [
+        'Created SOPs and SOCs across 4 regions',
+        'Reduced paperwork by 30%',
+      ],
+      tags: ['Excel', 'Canva', 'Power BI', 'Process Optimization'],
+    },
+  ];
 
   const projectCategories = [
     {
@@ -74,37 +85,41 @@ const Projects = () => {
           </h2>
         </div>
         
-        {/* Featured Project */}
-        <div className="glass-card p-8 mb-12 animate-fade-up gradient-border">
-          <div className="flex flex-wrap items-center gap-4 mb-4">
-            <span className="section-title m-0">Featured Project</span>
-            <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-medium">
-              {featuredProject.year}
-            </span>
-          </div>
-          
-          <h3 className="text-2xl font-bold mb-4">{featuredProject.title}</h3>
-          <p className="text-muted-foreground mb-6">{featuredProject.description}</p>
-          
-          <div className="space-y-3 mb-6">
-            {featuredProject.achievements.map((achievement, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                <p className="text-foreground">{achievement}</p>
+        {/* Featured Projects */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          {featuredProjects.map((project, projectIndex) => (
+            <div key={project.title} className="glass-card p-8 animate-fade-up gradient-border" style={{ animationDelay: `${projectIndex * 100}ms` }}>
+              <div className="flex flex-wrap items-center gap-4 mb-4">
+                <span className="section-title m-0">Featured Project</span>
+                <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-medium">
+                  {project.year}
+                </span>
               </div>
-            ))}
-          </div>
-          
-          <div className="flex flex-wrap gap-2">
-            {featuredProject.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 rounded-lg bg-muted text-muted-foreground text-sm border border-border"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+              
+              <h3 className="text-xl font-bold mb-4">{project.title}</h3>
+              <p className="text-muted-foreground mb-6">{project.description}</p>
+              
+              <div className="space-y-3 mb-6">
+                {project.achievements.map((achievement, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <p className="text-foreground">{achievement}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded-lg bg-muted text-muted-foreground text-sm border border-border"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
         
         {/* GitHub Projects */}

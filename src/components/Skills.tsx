@@ -4,11 +4,8 @@ import {
   Database, 
   Code, 
   PieChart, 
-  Map, 
-  Palette, 
   Users, 
   Brain, 
-  MessageCircle, 
   Handshake, 
   Sparkles 
 } from 'lucide-react';
@@ -19,50 +16,45 @@ const Skills = () => {
   
   const skillCategories = [
     {
-      title: 'Data & Analytics Tools',
+      title: 'Data & BI',
       color: 'primary',
       skills: [
         { name: 'Excel', icon: FileSpreadsheet },
         { name: 'Power BI', icon: BarChart3 },
         { name: 'Tableau', icon: PieChart },
         { name: 'SQL', icon: Database },
-        { name: 'JASP', icon: BarChart3 },
       ],
     },
     {
       title: 'Programming',
       color: 'secondary',
       skills: [
-        { name: 'Python', icon: Code },
-        { name: 'R', icon: Code },
+        { name: 'Python (Pandas, NumPy)', icon: Code },
+        { name: 'SQL', icon: Database },
+        { name: 'R (basic)', icon: Code },
       ],
     },
     {
-      title: 'Visualization & Research',
+      title: 'ML & Analytics',
       color: 'accent',
       skills: [
-        { name: 'Data Visualization', icon: PieChart },
-        { name: 'Statistical Analysis', icon: BarChart3 },
-        { name: 'Mathematical Analysis', icon: Brain },
+        { name: 'EDA', icon: BarChart3 },
+        { name: 'Feature Engineering', icon: Brain },
+        { name: 'Classification Models', icon: PieChart },
+        { name: 'Risk Scoring', icon: BarChart3 },
       ],
     },
     {
-      title: 'GIS & Mapping',
+      title: 'Tools',
       color: 'primary',
       skills: [
-        { name: 'QGIS', icon: Map },
+        { name: 'Streamlit', icon: Code },
+        { name: 'Gradio', icon: Code },
       ],
     },
     {
-      title: 'Design',
+      title: 'HR Systems',
       color: 'secondary',
-      skills: [
-        { name: 'Canva', icon: Palette },
-      ],
-    },
-    {
-      title: 'HR & Enterprise Tools',
-      color: 'accent',
       skills: [
         { name: 'HRSS', icon: Users },
         { name: 'LMS', icon: FileSpreadsheet },
@@ -77,7 +69,6 @@ const Skills = () => {
   const softSkills = [
     { name: 'Analytical Thinking', icon: Brain },
     { name: 'Problem Solving', icon: Sparkles },
-    { name: 'Communication', icon: MessageCircle },
     { name: 'Collaboration', icon: Handshake },
     { name: 'Adaptability', icon: Sparkles },
   ];

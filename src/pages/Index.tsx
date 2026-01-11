@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
+import Experience from '@/components/Experience';
 import Services from '@/components/Services';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
@@ -12,11 +13,11 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Vivek Kumar | Data Analyst & HR Analytics Professional</title>
-        <meta name="description" content="Vivek Kumar - Aspiring Data Analyst with expertise in HR Analytics, Power BI, Python, and data visualization. Currently pursuing M.Sc. Analytics at TISS Mumbai." />
-        <meta name="keywords" content="Data Analyst, HR Analytics, Power BI, Python, Data Visualization, TISS Mumbai, Vivek Kumar" />
-        <meta property="og:title" content="Vivek Kumar | Data Analyst Portfolio" />
-        <meta property="og:description" content="Aspiring Data Analyst with a strong foundation in HR and Learning & Development, skilled in analytical thinking and data visualization." />
+        <title>Vivek Kumar | Data Science & People Analytics</title>
+        <meta name="description" content="Vivek Kumar - Aspiring Data Science Intern with expertise in HR Analytics, Python, Machine Learning, and business-driven dashboards. Currently pursuing M.Sc. Analytics at TISS Mumbai." />
+        <meta name="keywords" content="Data Science, HR Analytics, People Analytics, Power BI, Python, Machine Learning, Streamlit, TISS Mumbai, Vivek Kumar" />
+        <meta property="og:title" content="Vivek Kumar | Data Science & People Analytics Portfolio" />
+        <meta property="og:description" content="Data science graduate with hands-on experience in HR analytics, machine learning models, and business-driven dashboards." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://vivek-kumar-portfolio.lovable.app" />
       </Helmet>
@@ -26,6 +27,7 @@ const Index = () => {
         <main>
           <Hero />
           <About />
+          <Experience />
           <Skills />
           <Services />
           <Projects />

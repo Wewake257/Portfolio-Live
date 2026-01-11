@@ -36,11 +36,11 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mt-4 animate-fade-up animation-delay-400">
-              Aspiring Data Analyst | HR & L&D Specialist | Analytics Graduate Student
+              Aspiring Data Science Intern | People Analytics & HR Intelligence
             </p>
             
             <p className="text-muted-foreground mt-6 max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-up animation-delay-600">
-              Aspiring Data Analyst with a strong foundation in HR and Learning & Development, skilled in analytical thinking, problem-solving, and stakeholder management. Experienced in using Power BI, Excel, and Python to interpret and visualize data for strategic decision-making. Currently pursuing M.Sc. in Analytics at TISS Mumbai and passionate about turning data into meaningful, actionable insights.
+              Data science graduate with hands-on experience in HR analytics, machine learning models, and business-driven dashboards.
             </p>
             
             <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start animate-fade-up animation-delay-800">
