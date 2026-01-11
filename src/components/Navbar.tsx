@@ -34,7 +34,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm font-medium link-underline"
             >
               {link.name}
             </a>
@@ -47,17 +47,17 @@ const Navbar = () => {
             href="https://github.com/Wewake257"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg hover:bg-primary/10 transition-colors duration-300"
+            className="p-2 rounded-lg hover:bg-primary/10 transition-all duration-300 group"
           >
-            <Github className="w-5 h-5 text-muted-foreground hover:text-primary" />
+            <Github className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
           </a>
           <a
             href="https://www.linkedin.com/in/wewake257"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg hover:bg-primary/10 transition-colors duration-300"
+            className="p-2 rounded-lg hover:bg-primary/10 transition-all duration-300 group"
           >
-            <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary" />
+            <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
           </a>
         </div>
 
