@@ -1,12 +1,44 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { z } from 'zod';
 
 const EMAILJS_SERVICE_ID = 'service_i2rkrdc';
 const EMAILJS_TEMPLATE_ID = 'template_zymdzoc';
 const EMAILJS_PUBLIC_KEY = '56b5YVFp8XhtaL6ip';
+
+// Rate limiting configuration
+const RATE_LIMIT_KEY = 'contact_form_submissions';
+const MAX_SUBMISSIONS = 3;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+
+// Validation schema
+const contactSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, { message: 'Name must be at least 2 characters' })
+    .max(100, { message: 'Name must be less than 100 characters' })
+    .regex(/^[a-zA-Z\s'-]+$/, { message: 'Name contains invalid characters' }),
+  email: z
+    .string()
+    .trim()
+    .email({ message: 'Please enter a valid email address' })
+    .max(255, { message: 'Email must be less than 255 characters' }),
+  message: z
+    .string()
+    .trim()
+    .min(10, { message: 'Message must be at least 10 characters' })
+    .max(1000, { message: 'Message must be less than 1000 characters' }),
+});
+
+type FormErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+};
 
 const Contact = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
@@ -16,11 +48,98 @@ const Contact = () => {
     email: '',
     message: '',
   });
+  const [honeypot, setHoneypot] = useState('');
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Check rate limiting
+  const checkRateLimit = useCallback((): boolean => {
+    try {
+      const stored = localStorage.getItem(RATE_LIMIT_KEY);
+      if (!stored) return true;
+
+      const submissions: number[] = JSON.parse(stored);
+      const now = Date.now();
+      const recentSubmissions = submissions.filter(
+        (time) => now - time < RATE_LIMIT_WINDOW_MS
+      );
+
+      return recentSubmissions.length < MAX_SUBMISSIONS;
+    } catch {
+      return true;
+    }
+  }, []);
+
+  // Record a submission for rate limiting
+  const recordSubmission = useCallback(() => {
+    try {
+      const stored = localStorage.getItem(RATE_LIMIT_KEY);
+      const submissions: number[] = stored ? JSON.parse(stored) : [];
+      const now = Date.now();
+      const recentSubmissions = submissions.filter(
+        (time) => now - time < RATE_LIMIT_WINDOW_MS
+      );
+      recentSubmissions.push(now);
+      localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(recentSubmissions));
+    } catch {
+      // Silently fail if localStorage is unavailable
+    }
+  }, []);
+
+  const validateForm = (): boolean => {
+    const result = contactSchema.safeParse(formData);
+    
+    if (!result.success) {
+      const fieldErrors: FormErrors = {};
+      result.error.errors.forEach((err) => {
+        const field = err.path[0] as keyof FormErrors;
+        if (!fieldErrors[field]) {
+          fieldErrors[field] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return false;
+    }
+    
+    setErrors({});
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Bot detection - honeypot check
+    if (honeypot) {
+      // Silently reject bot submissions
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: '', email: '', message: '' });
+      }, 3000);
+      return;
+    }
+
+    // Rate limiting check
+    if (!checkRateLimit()) {
+      toast({
+        title: 'Too many submissions',
+        description: 'Please wait before sending another message.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    // Validate form
+    if (!validateForm()) {
+      toast({
+        title: 'Validation error',
+        description: 'Please check the form for errors.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     if (!formRef.current) return;
     
     setIsSubmitting(true);
@@ -33,21 +152,23 @@ const Contact = () => {
         EMAILJS_PUBLIC_KEY
       );
       
+      recordSubmission();
       setIsSubmitted(true);
       toast({
-        title: "Message sent!",
+        title: 'Message sent!',
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
       
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({ name: '', email: '', message: '' });
+        setErrors({});
       }, 3000);
     } catch (error) {
       toast({
-        title: "Failed to send",
-        description: "Something went wrong. Please try again later.",
-        variant: "destructive",
+        title: 'Failed to send',
+        description: 'Something went wrong. Please try again later.',
+        variant: 'destructive',
       });
     } finally {
       setIsSubmitting(false);
@@ -55,10 +176,19 @@ const Contact = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
+    
+    // Clear error when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: undefined,
+      }));
+    }
   };
 
   const contactInfo = [
@@ -173,6 +303,20 @@ const Contact = () => {
             </h3>
             
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+              {/* Honeypot field - hidden from users, visible to bots */}
+              <div className="absolute -left-[9999px]" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+              
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name
@@ -183,10 +327,13 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                  maxLength={100}
+                  className={`w-full px-4 py-3 rounded-xl bg-muted/50 border ${errors.name ? 'border-destructive' : 'border-border'} focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300`}
                   placeholder="Your name"
                 />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-destructive">{errors.name}</p>
+                )}
               </div>
               
               <div>
@@ -199,10 +346,13 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                  maxLength={255}
+                  className={`w-full px-4 py-3 rounded-xl bg-muted/50 border ${errors.email ? 'border-destructive' : 'border-border'} focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300`}
                   placeholder="your@email.com"
                 />
+                {errors.email && (
+                  <p className="mt-1 text-sm text-destructive">{errors.email}</p>
+                )}
               </div>
               
               <div>
@@ -214,11 +364,17 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
+                  maxLength={1000}
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
+                  className={`w-full px-4 py-3 rounded-xl bg-muted/50 border ${errors.message ? 'border-destructive' : 'border-border'} focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none`}
                   placeholder="Tell me about your project..."
                 />
+                {errors.message && (
+                  <p className="mt-1 text-sm text-destructive">{errors.message}</p>
+                )}
+                <p className="mt-1 text-xs text-muted-foreground text-right">
+                  {formData.message.length}/1000
+                </p>
               </div>
               
               <button
@@ -229,17 +385,17 @@ const Contact = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                    Sending...
+                    <span>Sending...</span>
                   </>
                 ) : isSubmitted ? (
                   <>
                     <CheckCircle className="w-5 h-5" />
-                    Message Sent!
+                    <span>Message Sent!</span>
                   </>
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Send Message
+                    <span>Send Message</span>
                   </>
                 )}
               </button>
