@@ -114,9 +114,9 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skill.name}
-                    className={`px-3 py-2 rounded-lg flex items-center gap-2 text-sm font-medium border transition-all duration-300 hover:scale-105 ${getColorClasses(category.color)}`}
+                    className={`px-3 py-2 rounded-lg flex items-center gap-2 text-sm font-medium border transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-lg ${getColorClasses(category.color)}`}
                   >
-                    <skill.icon className="w-4 h-4" />
+                    <skill.icon className="w-4 h-4 skill-icon" />
                     {skill.name}
                   </div>
                 ))}
@@ -135,9 +135,9 @@ const Skills = () => {
             {softSkills.map((skill, index) => (
               <div
                 key={skill.name}
-                className="neumorphic px-6 py-4 flex items-center gap-3 hover:shadow-glow transition-all duration-300"
+                className="neumorphic px-6 py-4 flex items-center gap-3 hover:shadow-glow hover:-translate-y-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
               >
-                <skill.icon className="w-5 h-5 text-primary" />
+                <skill.icon className="w-5 h-5 text-primary group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
                 <span className="font-medium">{skill.name}</span>
               </div>
             ))}
