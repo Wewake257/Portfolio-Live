@@ -44,7 +44,7 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start animate-fade-up animation-delay-800">
-              <a href="#" className="btn-primary flex items-center gap-2">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-primary flex items-center gap-2">
                 <Download className="w-4 h-4" />
                 View Resume
               </a>
