@@ -14,7 +14,7 @@ const Index = () => {
     <>
       <Helmet>
         <title>Vivek Kumar | Data Science & People Analytics</title>
-        <meta name="description" content="Vivek Kumar - Aspiring Data Science Intern with expertise in HR Analytics, Python, Machine Learning, and business-driven dashboards. Currently pursuing M.Sc. Analytics at TISS Mumbai." />
+        <meta name="description" content="Vivek Kumar - Aspiring Data Science Intern skilled in Power BI, Excel, Python, Streamlit, and HR Analytics. Pursuing M.Sc. Analytics at TISS Mumbai." />
         <meta name="keywords" content="Data Science, HR Analytics, People Analytics, Power BI, Python, Machine Learning, Streamlit, TISS Mumbai, Vivek Kumar" />
         <meta property="og:title" content="Vivek Kumar | Data Science & People Analytics Portfolio" />
         <meta property="og:description" content="Data science graduate with hands-on experience in HR analytics, machine learning models, and business-driven dashboards." />

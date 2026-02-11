@@ -8,20 +8,20 @@ const Projects = () => {
     {
       title: 'OrgaKnow – Attrition Intelligence Platform',
       year: '2025',
-      description: 'End-to-end HR analytics and machine learning project.',
+      description: 'Built an end-to-end data science project to analyze HR data, perform EDA, predict attrition risk, and recommend retention actions.',
       achievements: [
         'Performed EDA, feature engineering, and attrition risk prediction',
-        'Built retention recommendation logic',
+        'Recommended retention actions using Python, Pandas, Streamlit, and Gradio',
       ],
       tags: ['Python', 'Pandas', 'Streamlit', 'Gradio', 'Machine Learning'],
     },
     {
       title: 'Fulki Communication Pvt Ltd – BBQ Nation',
       year: '2023',
-      description: 'Rebuilt onboarding and induction workflows.',
+      description: 'Restructured company onboarding and induction process with next-generation learning modules.',
       achievements: [
-        'Created SOPs and SOCs across 4 regions',
-        'Reduced paperwork by 30%',
+        'Streamlined operations through comprehensive SOPs and fostered collaboration via effective SOCs',
+        'Restructured communication flow among 4 regions and departments, cutting down paperwork by 30%',
       ],
       tags: ['Excel', 'Canva', 'Power BI', 'Process Optimization'],
     },

@@ -42,6 +42,7 @@ const Skills = () => {
         { name: 'Feature Engineering', icon: Brain },
         { name: 'Classification Models', icon: PieChart },
         { name: 'Risk Scoring', icon: BarChart3 },
+        { name: 'Statistical Analysis', icon: PieChart },
       ],
     },
     {
