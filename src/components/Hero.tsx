@@ -40,7 +40,7 @@ const Hero = () => {
             </p>
             
             <p className="text-muted-foreground mt-6 max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-up animation-delay-600">
-              Data science graduate with hands-on experience in HR analytics, machine learning models, and business-driven dashboards.
+              Proficient in Power BI, Excel, Python, and Streamlit with hands-on experience in HR analytics, machine learning models, and business-driven dashboards.
             </p>
             
             <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start animate-fade-up animation-delay-800">
