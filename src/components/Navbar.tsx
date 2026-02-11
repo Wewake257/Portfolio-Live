@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,8 +42,9 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Social Links */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Social Links & Theme Toggle */}
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <a
             href="https://github.com/Wewake257"
             target="_blank"
@@ -84,7 +86,8 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <div className="flex gap-4 pt-4 border-t border-border">
+            <div className="flex items-center gap-4 pt-4 border-t border-border">
+              <ThemeToggle />
               <a
                 href="https://github.com/Wewake257"
                 target="_blank"
