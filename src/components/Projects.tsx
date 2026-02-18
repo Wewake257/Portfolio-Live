@@ -18,6 +18,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import attritionPredictor2Img from '@/assets/attrition-predictor-2.png';
 
 interface Project {
   title: string;
@@ -26,6 +27,7 @@ interface Project {
   highlights: string[];
   githubLink: string;
   icon: React.ElementType;
+  image?: string;
 }
 
 interface Category {
@@ -58,6 +60,7 @@ const categories: Category[] = [
         highlights: ['Employee-level risk prediction', 'Interactive data input', 'Real-time prediction output', 'Scalable logic architecture'],
         githubLink: '#',
         icon: Activity,
+        image: attritionPredictor2Img,
       },
       {
         title: 'HR Attrition Intelligence (Streamlit)',
@@ -228,12 +231,18 @@ const ProjectCard = ({ project, color }: { project: Project; color: 'primary' | 
       <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
 
       {/* Screenshot placeholder */}
-      <div className={`w-full aspect-video rounded-lg border border-dashed ${c.border} ${c.bg} flex items-center justify-center mb-4 group cursor-pointer hover:opacity-80 transition-opacity`}>
-        <div className="flex flex-col items-center gap-1 text-muted-foreground/50">
-          <ImageIcon className="w-6 h-6" />
-          <span className="text-xs">Dashboard Preview</span>
+      {project.image ? (
+        <div className="w-full aspect-video rounded-lg overflow-hidden mb-4 border border-border/30">
+          <img src={project.image} alt={`${project.title} preview`} className="w-full h-full object-cover" />
         </div>
-      </div>
+      ) : (
+        <div className={`w-full aspect-video rounded-lg border border-dashed ${c.border} ${c.bg} flex items-center justify-center mb-4 group cursor-pointer hover:opacity-80 transition-opacity`}>
+          <div className="flex flex-col items-center gap-1 text-muted-foreground/50">
+            <ImageIcon className="w-6 h-6" />
+            <span className="text-xs">Dashboard Preview</span>
+          </div>
+        </div>
+      )}
 
       {/* Tech badges */}
       <div className="flex flex-wrap gap-1.5 mb-4">
