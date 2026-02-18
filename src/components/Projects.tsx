@@ -20,6 +20,7 @@ import {
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import attritionPredictor2Img from '@/assets/attrition-predictor-2.png';
 import weatherApiImg from '@/assets/weather-api-dashboard.png';
+import coffeeShopImg from '@/assets/coffee-shop-dashboard.png';
 
 interface Project {
   title: string;
@@ -167,6 +168,7 @@ const categories: Category[] = [
         highlights: ['Revenue tracking', 'Trend analysis', 'Category performance'],
         githubLink: '#',
         icon: Coffee,
+        image: coffeeShopImg,
       },
     ],
   },
