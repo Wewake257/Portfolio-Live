@@ -21,6 +21,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import attritionPredictor2Img from '@/assets/attrition-predictor-2.png';
 import weatherApiImg from '@/assets/weather-api-dashboard.png';
 import coffeeShopImg from '@/assets/coffee-shop-dashboard.png';
+import superstoreImg from '@/assets/superstore-powerbi.png';
 
 interface Project {
   title: string;
@@ -151,6 +152,7 @@ const categories: Category[] = [
         highlights: ['KPI visualization', 'Interactive filtering', 'Business performance tracking'],
         githubLink: '#',
         icon: BarChart3,
+        image: superstoreImg,
       },
       {
         title: 'Weather API Dashboard',
