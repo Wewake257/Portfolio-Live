@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import attritionPredictor2Img from '@/assets/attrition-predictor-2.png';
+import weatherApiImg from '@/assets/weather-api-dashboard.png';
 
 interface Project {
   title: string;
@@ -157,6 +158,7 @@ const categories: Category[] = [
         highlights: ['Real-time data fetching', 'Dynamic visualization'],
         githubLink: '#',
         icon: Cloud,
+        image: weatherApiImg,
       },
       {
         title: 'Coffee Shop Sales Excel Project',
