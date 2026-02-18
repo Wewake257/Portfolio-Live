@@ -36,11 +36,11 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mt-4 animate-fade-up animation-delay-400">
-              Aspiring Data Science Intern | People Analytics & HR Intelligence
+              Aspiring Data Science or Business Analyst Intern | People Analytics & HR Intelligence
             </p>
             
             <p className="text-muted-foreground mt-6 max-w-xl mx-auto lg:mx-0 leading-relaxed animate-fade-up animation-delay-600">
-              Proficient in Power BI, Excel, Python, and Streamlit with hands-on experience in HR analytics, machine learning models, and business-driven dashboards.
+              Proficient in Power BI, Excel, Python, SQL, and Streamlit with hands-on experience in HR analytics, machine learning models, and business-driven dashboards.
             </p>
             
             <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start animate-fade-up animation-delay-800">
