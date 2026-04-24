@@ -400,7 +400,7 @@ const Projects = () => {
             <span className="gradient-text">Projects Showcase</span>
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-            13 projects across ML, Python, SQL, BI dashboards, and geospatial analytics — built for real-world impact.
+            20 projects across ML, finance, applications, Python, SQL, BI dashboards, and geospatial analytics — built for real-world impact.
           </p>
         </div>
 
