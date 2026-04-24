@@ -15,7 +15,13 @@ import {
   Cloud,
   Coffee,
   MapPin,
-  TrendingUp
+  TrendingUp,
+  DollarSign,
+  Briefcase,
+  LineChart,
+  FileSpreadsheet,
+  Calculator,
+  Monitor
 } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import attritionPredictor2Img from '@/assets/attrition-predictor-2.png';
