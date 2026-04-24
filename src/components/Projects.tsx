@@ -15,7 +15,13 @@ import {
   Cloud,
   Coffee,
   MapPin,
-  TrendingUp
+  TrendingUp,
+  DollarSign,
+  Briefcase,
+  LineChart,
+  FileSpreadsheet,
+  Calculator,
+  Monitor
 } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import attritionPredictor2Img from '@/assets/attrition-predictor-2.png';
@@ -53,7 +59,7 @@ const categories: Category[] = [
         description: 'Built an HR analytics intelligence system to predict employee retention risk using structured workforce data.',
         techStack: ['Python', 'Pandas', 'NumPy', 'Classification Models'],
         highlights: ['Risk scoring logic', 'Feature engineering', 'KPI-weighted modeling', 'Predictive decision support'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/AI-Retention-Intelligence',
         icon: Brain,
       },
       {
@@ -61,7 +67,7 @@ const categories: Category[] = [
         description: 'Advanced version of an ML-based attrition prediction system built with an interactive interface.',
         techStack: ['Python', 'Streamlit', 'Pandas'],
         highlights: ['Employee-level risk prediction', 'Interactive data input', 'Real-time prediction output', 'Scalable logic architecture'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/Attrition-Predictor-APP-2.0-',
         icon: Activity,
         image: attritionPredictor2Img,
       },
@@ -70,7 +76,7 @@ const categories: Category[] = [
         description: 'Streamlit-based application predicting attrition risk based on satisfaction levels across multiple parameters.',
         techStack: ['Python', 'Streamlit', 'EDA'],
         highlights: ['Multi-factor satisfaction scoring', 'Interactive dashboard', 'HR-focused decision support'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/HR-Attrition-Intelligence-',
         icon: TrendingUp,
       },
       {
@@ -78,8 +84,80 @@ const categories: Category[] = [
         description: 'Interactive demo application predicting attrition rates based on user-submitted workforce data.',
         techStack: ['Python', 'Streamlit'],
         highlights: ['Data-driven probability prediction', 'Simple ML-based classification logic'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/Attrition-Predictor-APP',
         icon: Users,
+      },
+    ],
+  },
+  {
+    id: 'finance',
+    title: 'Finance & Investment Analytics',
+    icon: DollarSign,
+    color: 'accent',
+    projects: [
+      {
+        title: 'Portfolio Management & Risk Analysis',
+        description: 'Portfolio analytics project analyzing risk-return tradeoffs, diversification, and stock behavior using statistical and simulation techniques.',
+        techStack: ['Python', 'NumPy', 'Pandas', 'Monte Carlo'],
+        highlights: ['Risk-return analysis', 'Diversification modeling', 'Monte Carlo simulation', 'Statistical analysis'],
+        githubLink: 'https://github.com/Wewake257/Portfolio-Management-Risk-Analysis-Python',
+        icon: LineChart,
+      },
+      {
+        title: 'Financial Analytics – DCF Valuation',
+        description: 'Firm valuation using DCF methodology with forecasting, WACC modeling, and sensitivity analysis.',
+        techStack: ['Python', 'DCF', 'WACC', 'Forecasting'],
+        highlights: ['Cash flow forecasting', 'WACC calculation', 'Sensitivity analysis', 'Intrinsic valuation'],
+        githubLink: 'https://github.com/Wewake257/Financial-Analytics-DCF-Valuation-Python',
+        icon: Calculator,
+      },
+      {
+        title: 'Groww Portfolio Financial Analysis',
+        description: 'Power BI–driven financial portfolio analytics on Groww investment data with automated cleaning and validation workflows.',
+        techStack: ['Power BI', 'Excel', 'Data Cleaning'],
+        highlights: ['Automated data validation', 'Returns & allocation tracking', 'Volatility analysis', 'KPI modeling'],
+        githubLink: 'https://github.com/Wewake257/Groww-Portfolio-Financial-Analysis-Python-2025',
+        icon: TrendingUp,
+      },
+      {
+        title: 'Stocks Portfolio Management (Excel)',
+        description: 'Excel-based portfolio management analyzing 5 equities using return modeling, risk metrics, correlation, and optimization.',
+        techStack: ['Excel', 'Risk Metrics', 'Correlation'],
+        highlights: ['Return modeling', 'Risk-adjusted analysis', 'Correlation matrix', 'Portfolio optimization'],
+        githubLink: 'https://github.com/Wewake257/Stocks-Portfolio-Management-Excel-2026',
+        icon: FileSpreadsheet,
+      },
+      {
+        title: 'IC Dashboard Automation',
+        description: 'AI-powered financial dashboard system ingesting MIS, AOP, and Business Model data to generate executive Excel and HTML dashboards.',
+        techStack: ['Python', 'Excel', 'HTML', 'Automation'],
+        highlights: ['Multi-source data ingestion', 'Executive reporting', 'Automated dashboards', 'Financial intelligence'],
+        githubLink: 'https://github.com/Wewake257/IC-Dashboard-Automation-Financial-Intelligence-System-Python-Excel',
+        icon: Briefcase,
+      },
+    ],
+  },
+  {
+    id: 'apps',
+    title: 'Applications & CRM Systems',
+    icon: Monitor,
+    color: 'secondary',
+    projects: [
+      {
+        title: 'Client Manager – Tkinter & MySQL',
+        description: 'Desktop CRM application built with Tkinter and MySQL for managing clients, projects, and follow-ups with full CRUD functionality.',
+        techStack: ['Python', 'Tkinter', 'MySQL'],
+        highlights: ['Full CRUD operations', 'Desktop GUI', 'Client & project tracking', 'Follow-up management'],
+        githubLink: 'https://github.com/Wewake257/Client-Manager-Tkinter-MySQL',
+        icon: Monitor,
+      },
+      {
+        title: 'Client Management System – Django',
+        description: 'Django-based client management system with CRUD operations, dashboard view, and structured UI for tracking client data.',
+        techStack: ['Django', 'Python', 'SQLite'],
+        highlights: ['Web-based CRM', 'Dashboard view', 'Structured UI', 'Client data tracking'],
+        githubLink: 'https://github.com/Wewake257/Client-Management-System-Django',
+        icon: Briefcase,
       },
     ],
   },
@@ -94,7 +172,7 @@ const categories: Category[] = [
         description: 'Analyzed Airbnb listings in Paris to explore pricing patterns, availability trends, and neighborhood insights.',
         techStack: ['Python', 'Pandas', 'NumPy', 'Matplotlib'],
         highlights: ['Price distribution analysis', 'Neighborhood-level comparisons', 'Availability vs pricing patterns'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/AirBnB-Analysis-Python-2026',
         icon: MapPin,
       },
       {
@@ -102,7 +180,7 @@ const categories: Category[] = [
         description: 'Analyzed airline ticket sales data to identify pricing patterns, revenue trends, and seasonal demand.',
         techStack: ['Python', 'Pandas', 'NumPy', 'Jupyter Notebook'],
         highlights: ['Revenue trend analysis', 'Price variability patterns', 'Demand fluctuations'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/Airline-Ticket-Sale-Analysis-Python-Project-2025',
         icon: Plane,
       },
       {
@@ -110,7 +188,7 @@ const categories: Category[] = [
         description: 'Census 2011 data analysis of Uttarakhand to study migration trends and literacy patterns.',
         techStack: ['Python', 'Data Visualization'],
         highlights: ['District-level migration comparison', 'Literacy distribution patterns'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/Migration-and-Literacy-Analysis-',
         icon: BarChart3,
       },
     ],
@@ -126,7 +204,7 @@ const categories: Category[] = [
         description: 'Designed and analyzed structured restaurant transaction database to extract revenue and operational insights.',
         techStack: ['SQL', 'Joins', 'Aggregations', 'Subqueries'],
         highlights: ['Revenue calculation', 'Order trend analysis', 'Product performance insights'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/Restaurant-Orders-SQL-Project-2026',
         icon: Database,
       },
       {
@@ -134,7 +212,7 @@ const categories: Category[] = [
         description: 'Workforce data analysis using SQL queries to identify employee trends and HR insights.',
         techStack: ['SQL'],
         highlights: ['Attrition patterns', 'Tenure distribution', 'Performance insights'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/Analysing-Employee-trend-SQL-Project-2025',
         icon: Users,
       },
     ],
@@ -150,7 +228,7 @@ const categories: Category[] = [
         description: 'Interactive Power BI dashboards analyzing sales, performance, and operational metrics.',
         techStack: ['Power BI', 'DAX', 'Data Modeling'],
         highlights: ['KPI visualization', 'Interactive filtering', 'Business performance tracking'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/Zomato-IPL-Superstore-Data-Power-BI-Dashboard--2025',
         icon: BarChart3,
         image: superstoreImg,
       },
@@ -159,7 +237,7 @@ const categories: Category[] = [
         description: 'Live weather forecast dashboard built using API integration and Power BI.',
         techStack: ['Power BI', 'API Integration'],
         highlights: ['Real-time data fetching', 'Dynamic visualization'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/Weather-API-Dashboard-Power-BI-Project-2025',
         icon: Cloud,
         image: weatherApiImg,
       },
@@ -168,7 +246,7 @@ const categories: Category[] = [
         description: 'Sales performance analysis using Excel dashboards and pivot tables.',
         techStack: ['Excel', 'Pivot Tables', 'Charts'],
         highlights: ['Revenue tracking', 'Trend analysis', 'Category performance'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/Coffee-Shop-Sales-Excel-Project-2024',
         icon: Coffee,
         image: coffeeShopImg,
       },
@@ -185,7 +263,7 @@ const categories: Category[] = [
         description: 'Geospatial buffer analysis to study hospital coverage range in New Haldwani.',
         techStack: ['QGIS', 'Spatial Analysis'],
         highlights: ['Buffer mapping', 'Accessibility insights', 'Service coverage visualization'],
-        githubLink: '#',
+        githubLink: 'https://github.com/Wewake257/QGIS-Project',
         icon: Map,
       },
     ],
@@ -322,7 +400,7 @@ const Projects = () => {
             <span className="gradient-text">Projects Showcase</span>
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-            13 projects across ML, Python, SQL, BI dashboards, and geospatial analytics — built for real-world impact.
+            20 projects across ML, finance, applications, Python, SQL, BI dashboards, and geospatial analytics — built for real-world impact.
           </p>
         </div>
 
