@@ -271,113 +271,97 @@ const categories: Category[] = [
 ];
 
 const colorMap = {
-  primary: {
-    bg: 'bg-primary/10',
-    bgHover: 'bg-primary/20',
-    text: 'text-primary',
-    border: 'border-primary/20',
-    badge: 'bg-primary/15 text-primary border-primary/25',
-    glow: 'hover:shadow-[0_0_30px_hsl(189_94%_43%/0.15)]',
-  },
-  secondary: {
-    bg: 'bg-secondary/10',
-    bgHover: 'bg-secondary/20',
-    text: 'text-secondary',
-    border: 'border-secondary/20',
-    badge: 'bg-secondary/15 text-secondary border-secondary/25',
-    glow: 'hover:shadow-[0_0_30px_hsl(260_60%_50%/0.15)]',
-  },
-  accent: {
-    bg: 'bg-accent/10',
-    bgHover: 'bg-accent/20',
-    text: 'text-accent',
-    border: 'border-accent/20',
-    badge: 'bg-accent/15 text-accent border-accent/25',
-    glow: 'hover:shadow-[0_0_30px_hsl(172_66%_50%/0.15)]',
-  },
-};
+  primary: { text: 'text-primary', ring: 'ring-primary/30', chip: 'lux-chip-primary' },
+  secondary: { text: 'text-foreground', ring: 'ring-foreground/20', chip: 'lux-chip' },
+  accent: { text: 'text-accent', ring: 'ring-accent/30', chip: 'lux-chip-accent' },
+} as const;
 
 const ProjectCard = ({ project, color }: { project: Project; color: 'primary' | 'secondary' | 'accent' }) => {
   const [expanded, setExpanded] = useState(false);
   const c = colorMap[color];
 
   return (
-    <div className={`glass-card-hover p-6 flex flex-col h-full transition-all duration-300 ${c.glow}`}>
-      {/* Header */}
-      <div className="flex items-start gap-3 mb-3">
-        <div className={`w-10 h-10 rounded-lg ${c.bg} flex items-center justify-center flex-shrink-0`}>
-          <project.icon className={`w-5 h-5 ${c.text}`} />
-        </div>
-        <h4 className="text-base font-semibold leading-tight pt-1">{project.title}</h4>
-      </div>
-
-      {/* Description */}
-      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
-
-      {/* Screenshot placeholder */}
-      {project.image ? (
-        <div className="w-full aspect-video rounded-lg overflow-hidden mb-4 border border-border/30">
-          <img src={project.image} alt={`${project.title} preview`} className="w-full h-full object-cover" />
-        </div>
-      ) : (
-        <div className={`w-full aspect-video rounded-lg border border-dashed ${c.border} ${c.bg} flex items-center justify-center mb-4 group cursor-pointer hover:opacity-80 transition-opacity`}>
-          <div className="flex flex-col items-center gap-1 text-muted-foreground/50">
-            <ImageIcon className="w-6 h-6" />
-            <span className="text-xs">Dashboard Preview</span>
+    <article className="lux-glass lux-glass-hover overflow-hidden flex flex-col h-full group">
+      {/* Media */}
+      <div className="relative aspect-[16/10] overflow-hidden border-b border-border/60">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="w-full h-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full bg-grad-brand-soft flex items-center justify-center">
+            <project.icon className={`w-12 h-12 ${c.text} opacity-40`} />
           </div>
-        </div>
-      )}
-
-      {/* Tech badges */}
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {project.techStack.map((tech) => (
-          <span key={tech} className={`px-2 py-0.5 text-xs font-medium rounded-md border ${c.badge}`}>
-            {tech}
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-70" />
+        <div className="absolute top-3 left-3">
+          <span className={`lux-chip ${c.chip}`}>
+            <project.icon className="w-3 h-3" />
+            {color === 'primary' ? 'Featured' : color === 'accent' ? 'Analytics' : 'Project'}
           </span>
-        ))}
-      </div>
-
-      {/* Expandable details */}
-      <div className="mt-auto">
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className={`flex items-center gap-1.5 text-sm font-medium ${c.text} hover:underline transition-all`}
-        >
-          <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
-          {expanded ? 'Hide' : 'View'} Technical Details
-        </button>
-
-        <div className={`grid transition-all duration-300 ${expanded ? 'grid-rows-[1fr] mt-3' : 'grid-rows-[0fr]'}`}>
-          <div className="overflow-hidden">
-            <ul className="space-y-1.5">
-              {project.highlights.map((h, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: `hsl(var(--${color}))` }} />
-                  {h}
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
 
-      {/* GitHub button */}
-      <a
-        href={project.githubLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`mt-4 inline-flex items-center gap-2 text-sm font-medium ${c.text} hover:underline`}
-      >
-        <Github className="w-4 h-4" />
-        View on GitHub
-        <ExternalLink className="w-3 h-3" />
-      </a>
-    </div>
+      {/* Body */}
+      <div className="p-6 flex flex-col flex-1">
+        <h4 className="display-serif text-2xl leading-tight text-balance">{project.title}</h4>
+        <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">{project.description}</p>
+
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.techStack.slice(0, 4).map((t) => (
+            <span key={t} className="lux-chip !text-[10px]">{t}</span>
+          ))}
+          {project.techStack.length > 4 && (
+            <span className="lux-chip !text-[10px]">+{project.techStack.length - 4}</span>
+          )}
+        </div>
+
+        <div className="mt-auto pt-5">
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="flex items-center gap-1.5 text-xs mono uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
+          >
+            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-500 ${expanded ? 'rotate-180' : ''}`} />
+            {expanded ? 'Hide details' : 'Details'}
+          </button>
+
+          <div className={`grid transition-all duration-500 ${expanded ? 'grid-rows-[1fr] mt-4 opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+            <div className="overflow-hidden">
+              <ul className="space-y-1.5">
+                {project.highlights.map((h, i) => (
+                  <li key={i} className="flex items-start gap-2 text-xs text-foreground/80">
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-primary flex-shrink-0" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-5 pt-5 border-t border-border/60 flex items-center justify-between">
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-foreground/90 hover:text-primary transition-colors"
+            >
+              <Github className="w-4 h-4" />
+              GitHub
+              <ExternalLink className="w-3 h-3 opacity-60" />
+            </a>
+            <span className={`text-[10px] mono uppercase tracking-widest ${c.text} opacity-70`}>{project.techStack[0]}</span>
+          </div>
+        </div>
+      </div>
+    </article>
   );
 };
 
 const Projects = () => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.02 });
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
   const filteredCategories = activeCategory === 'all'
@@ -388,96 +372,88 @@ const Projects = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="projects"
-      className={`py-24 relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`container-lux py-24 md:py-32 transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
     >
-      <div className="glow-orb w-96 h-96 -bottom-48 -right-48 animate-glow-pulse" style={{ background: 'radial-gradient(circle, hsl(172 66% 50%) 0%, transparent 70%)' }} />
-
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <span className="section-title">Portfolio</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-4">
-            <span className="gradient-text">Projects Showcase</span>
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div className="section-eyebrow">
+            <span className="mono text-primary">03</span>
+            <span>Selected work</span>
+          </div>
+          <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl display-serif text-balance">
+            Projects &amp; <em className="display-italic lux-text-brand">case studies.</em>
           </h2>
-          <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-            20 projects across ML, finance, applications, Python, SQL, BI dashboards, and geospatial analytics — built for real-world impact.
+          <p className="mt-4 max-w-xl text-muted-foreground">
+            20+ shipped projects across machine learning, finance, applications, Python analysis, SQL, business intelligence, and geospatial studies.
           </p>
         </div>
+        <a
+          href="https://github.com/Wewake257?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="lux-btn lux-btn-ghost self-start md:self-end"
+        >
+          <span className="relative z-10 flex items-center gap-2">
+            <Github className="w-4 h-4" /> All repositories
+          </span>
+        </a>
+      </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+      {/* Filter pills */}
+      <div className="flex flex-wrap gap-2 mb-14 no-scrollbar overflow-x-auto pb-1">
+        <button
+          onClick={() => setActiveCategory('all')}
+          className={`px-4 py-2 rounded-full text-xs mono uppercase tracking-widest border transition-all ${
+            activeCategory === 'all'
+              ? 'bg-grad-brand text-primary-foreground border-transparent'
+              : 'text-muted-foreground border-border/60 hover:border-primary/40 hover:text-foreground'
+          }`}
+        >
+          All · {categories.reduce((n, c) => n + c.projects.length, 0)}
+        </button>
+        {categories.map((cat) => (
           <button
-            onClick={() => setActiveCategory('all')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all duration-300 ${
-              activeCategory === 'all'
-                ? 'bg-primary/20 text-primary border-primary/30'
-                : 'bg-muted/30 text-muted-foreground border-border hover:border-primary/30 hover:text-primary'
+            key={cat.id}
+            onClick={() => setActiveCategory(cat.id)}
+            className={`px-4 py-2 rounded-full text-xs mono uppercase tracking-widest border transition-all flex items-center gap-2 whitespace-nowrap ${
+              activeCategory === cat.id
+                ? 'bg-grad-brand text-primary-foreground border-transparent'
+                : 'text-muted-foreground border-border/60 hover:border-primary/40 hover:text-foreground'
             }`}
           >
-            All Projects
+            <cat.icon className="w-3.5 h-3.5" />
+            {cat.title}
+            <span className="opacity-60">· {cat.projects.length}</span>
           </button>
-          {categories.map((cat) => {
-            const c = colorMap[cat.color];
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all duration-300 flex items-center gap-2 ${
-                  isActive
-                    ? `${c.bgHover} ${c.text} ${c.border}`
-                    : 'bg-muted/30 text-muted-foreground border-border hover:text-foreground'
-                }`}
-              >
-                <cat.icon className="w-4 h-4" />
-                {cat.title}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Projects by Category */}
-        {filteredCategories.map((cat) => {
-          const c = colorMap[cat.color];
-          return (
-            <div key={cat.id} className="mb-16 last:mb-0">
-              <div className="flex items-center gap-3 mb-6">
-                <div className={`w-8 h-8 rounded-lg ${c.bg} flex items-center justify-center`}>
-                  <cat.icon className={`w-4 h-4 ${c.text}`} />
-                </div>
-                <h3 className="text-xl font-semibold">{cat.title}</h3>
-                <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${c.badge} border`}>
-                  {cat.projects.length} project{cat.projects.length > 1 ? 's' : ''}
-                </span>
-              </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {cat.projects.map((project, idx) => (
-                  <div key={project.title} className="animate-fade-up" style={{ animationDelay: `${idx * 80}ms` }}>
-                    <ProjectCard project={project} color={cat.color} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          );
-        })}
-
-        {/* GitHub CTA */}
-        <div className="mt-12 text-center">
-          <a
-            href="https://github.com/Wewake257"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary inline-flex items-center gap-2"
-          >
-            <Github className="w-5 h-5" />
-            View All Repositories
-            <ExternalLink className="w-4 h-4" />
-          </a>
-        </div>
+        ))}
       </div>
+
+      {/* Projects by category */}
+      {filteredCategories.map((cat) => (
+        <div key={cat.id} className="mb-20 last:mb-0">
+          <div className="flex items-center gap-4 mb-8">
+            <cat.icon className={`w-4 h-4 ${colorMap[cat.color].text}`} />
+            <h3 className="display-serif text-2xl md:text-3xl">{cat.title}</h3>
+            <div className="flex-1 hairline" />
+            <span className="mono text-[10px] uppercase tracking-widest text-muted-foreground">
+              {cat.projects.length} project{cat.projects.length > 1 ? 's' : ''}
+            </span>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cat.projects.map((project, idx) => (
+              <div key={project.title} style={{ animation: `fade-up 0.8s ${idx * 80}ms both` }}>
+                <ProjectCard project={project} color={cat.color} />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
   );
 };
 
 export default Projects;
+
