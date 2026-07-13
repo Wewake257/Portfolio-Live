@@ -1,148 +1,119 @@
-import { 
-  FileSpreadsheet, 
-  BarChart3, 
-  Database, 
-  Code, 
-  PieChart, 
-  Users, 
-  Brain, 
-  Handshake, 
-  Sparkles 
-} from 'lucide-react';
+import { BarChart3, Brain, Code2, Database, FileSpreadsheet, LineChart, PieChart, Users, Wrench, Sparkles } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import SectionHeader from './SectionHeader';
+
+const primary = [
+  { name: 'Python', pct: 88, icon: Code2 },
+  { name: 'SQL', pct: 82, icon: Database },
+  { name: 'Power BI', pct: 90, icon: BarChart3 },
+  { name: 'Excel', pct: 92, icon: FileSpreadsheet },
+  { name: 'Streamlit', pct: 78, icon: LineChart },
+];
+
+const ml = ['EDA', 'Feature Engineering', 'Classification Models', 'Risk Scoring', 'Statistical Analysis'];
+const tools = ['Pandas', 'NumPy', 'Streamlit', 'Gradio', 'Tableau', 'QGIS', 'Jupyter'];
+const hrSystems = ['HRSS', 'LMS', 'Frontlyn', 'Betterplace', 'ZingHR', 'ZingLearn'];
+const soft = ['Analytical thinking', 'Problem solving', 'Collaboration', 'Stakeholder mgmt', 'Adaptability'];
 
 const Skills = () => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
-  
-  const skillCategories = [
-    {
-      title: 'Data & BI',
-      color: 'primary',
-      skills: [
-        { name: 'Excel', icon: FileSpreadsheet },
-        { name: 'Power BI', icon: BarChart3 },
-        { name: 'Tableau', icon: PieChart },
-        { name: 'SQL', icon: Database },
-      ],
-    },
-    {
-      title: 'Programming',
-      color: 'secondary',
-      skills: [
-        { name: 'Python (Pandas, NumPy)', icon: Code },
-        { name: 'SQL', icon: Database },
-        { name: 'R (basic)', icon: Code },
-      ],
-    },
-    {
-      title: 'ML & Analytics',
-      color: 'accent',
-      skills: [
-        { name: 'EDA', icon: BarChart3 },
-        { name: 'Feature Engineering', icon: Brain },
-        { name: 'Classification Models', icon: PieChart },
-        { name: 'Risk Scoring', icon: BarChart3 },
-        { name: 'Statistical Analysis', icon: PieChart },
-      ],
-    },
-    {
-      title: 'Tools',
-      color: 'primary',
-      skills: [
-        { name: 'Streamlit', icon: Code },
-        { name: 'Gradio', icon: Code },
-      ],
-    },
-    {
-      title: 'HR Systems',
-      color: 'secondary',
-      skills: [
-        { name: 'HRSS', icon: Users },
-        { name: 'LMS', icon: FileSpreadsheet },
-        { name: 'Frontlyn', icon: Users },
-        { name: 'Betterplace', icon: Users },
-        { name: 'ZingHR', icon: Users },
-        { name: 'ZingLearn', icon: Users },
-      ],
-    },
-  ];
-
-  const softSkills = [
-    { name: 'Analytical Thinking', icon: Brain },
-    { name: 'Problem Solving', icon: Sparkles },
-    { name: 'Collaboration', icon: Handshake },
-    { name: 'Adaptability', icon: Sparkles },
-  ];
-
-  const getColorClasses = (color: string) => {
-    switch (color) {
-      case 'primary':
-        return 'bg-primary/20 text-primary border-primary/30';
-      case 'secondary':
-        return 'bg-secondary/20 text-secondary border-secondary/30';
-      case 'accent':
-        return 'bg-accent/20 text-accent border-accent/30';
-      default:
-        return 'bg-primary/20 text-primary border-primary/30';
-    }
-  };
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
 
   return (
-    <section ref={ref as React.RefObject<HTMLElement>} id="skills" className={`py-24 relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      <div className="glow-orb w-72 h-72 bottom-0 right-0 animate-glow-pulse" style={{ background: 'radial-gradient(circle, hsl(260 60% 50%) 0%, transparent 70%)' }} />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <span className="section-title">Skills</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-4">
-            <span className="gradient-text">Technical Expertise</span>
-          </h2>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, categoryIndex) => (
-            <div
-              key={category.title}
-              className="glass-card-hover p-6 animate-fade-up"
-              style={{ animationDelay: `${categoryIndex * 100}ms` }}
-            >
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <span className={`w-2 h-2 rounded-full bg-${category.color}`} style={{ backgroundColor: `hsl(var(--${category.color}))` }} />
-                {category.title}
-              </h3>
-              
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
+    <section
+      id="skills"
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`container-lux py-24 md:py-32 transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
+      <SectionHeader
+        index="02"
+        eyebrow="Capabilities"
+        title="A stack built for"
+        italic="decision-grade analytics."
+      />
+
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5 auto-rows-[minmax(140px,auto)]">
+        {/* Primary skills — tall tile */}
+        <div className="lux-glass p-7 md:col-span-3 md:row-span-2 flex flex-col">
+          <div className="flex items-center justify-between mb-4">
+            <div className="eyebrow">Primary</div>
+            <Sparkles className="w-4 h-4 text-primary" />
+          </div>
+          <h3 className="display-serif text-3xl mb-6">Core proficiency</h3>
+          <div className="space-y-5 mt-auto">
+            {primary.map((s) => (
+              <div key={s.name}>
+                <div className="flex items-center justify-between mb-1.5 text-sm">
+                  <span className="flex items-center gap-2">
+                    <s.icon className="w-4 h-4 text-primary" /> {s.name}
+                  </span>
+                  <span className="mono text-xs text-muted-foreground">{s.pct}%</span>
+                </div>
+                <div className="h-1 rounded-full bg-surface-3 overflow-hidden">
                   <div
-                    key={skill.name}
-                    className={`px-3 py-2 rounded-lg flex items-center gap-2 text-sm font-medium border transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-lg ${getColorClasses(category.color)}`}
-                  >
-                    <skill.icon className="w-4 h-4 skill-icon" />
-                    {skill.name}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        {/* Soft Skills */}
-        <div className="mt-12 glass-card p-8 animate-fade-up animation-delay-600">
-          <h3 className="text-xl font-semibold mb-6 text-center">
-            <span className="gradient-text">Soft Skills</span>
-          </h3>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            {softSkills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="neumorphic px-6 py-4 flex items-center gap-3 hover:shadow-glow hover:-translate-y-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
-              >
-                <skill.icon className="w-5 h-5 text-primary group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
-                <span className="font-medium">{skill.name}</span>
+                    className="h-full bg-grad-brand transition-all duration-1000 ease-out"
+                    style={{ width: isVisible ? `${s.pct}%` : '0%' }}
+                  />
+                </div>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* ML & Analytics */}
+        <div className="lux-glass lux-glass-hover p-6 md:col-span-3">
+          <div className="flex items-center gap-2 mb-4">
+            <Brain className="w-4 h-4 text-accent" />
+            <div className="eyebrow">ML & Analytics</div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {ml.map((t) => <span key={t} className="lux-chip lux-chip-accent">{t}</span>)}
+          </div>
+        </div>
+
+        {/* Tools */}
+        <div className="lux-glass lux-glass-hover p-6 md:col-span-2">
+          <div className="flex items-center gap-2 mb-4">
+            <Wrench className="w-4 h-4 text-primary" />
+            <div className="eyebrow">Tools</div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {tools.map((t) => <span key={t} className="lux-chip">{t}</span>)}
+          </div>
+        </div>
+
+        {/* Pull quote */}
+        <div className="lux-glass p-6 md:col-span-4 flex items-center">
+          <p className="display-serif text-xl md:text-2xl leading-snug text-balance">
+            "The best analytics tell you <em className="display-italic lux-text-brand">what to do next</em>, not just what happened."
+          </p>
+        </div>
+
+        {/* HR Systems */}
+        <div className="lux-glass lux-glass-hover p-6 md:col-span-4">
+          <div className="flex items-center gap-2 mb-4">
+            <Users className="w-4 h-4 text-primary" />
+            <div className="eyebrow">HR Systems</div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {hrSystems.map((t) => <span key={t} className="lux-chip">{t}</span>)}
+          </div>
+        </div>
+
+        {/* Soft skills */}
+        <div className="lux-glass lux-glass-hover p-6 md:col-span-2">
+          <div className="flex items-center gap-2 mb-4">
+            <PieChart className="w-4 h-4 text-accent" />
+            <div className="eyebrow">Soft skills</div>
+          </div>
+          <ul className="space-y-1.5 text-sm text-foreground/85">
+            {soft.map((s) => (
+              <li key={s} className="flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-primary" /> {s}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
