@@ -3,10 +3,18 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import SectionHeader from './SectionHeader';
 
 const education = [
-  { degree: 'M.Sc. in Analytics', institution: 'Tata Institute of Social Sciences, Mumbai', year: '2025 – 2027', tag: 'Pursuing' },
-  { degree: 'B.Sc. Hotel & Hospitality Administration', institution: 'AIHM, Chandigarh', year: '2019 – 2022', tag: '74%' },
-  { degree: 'Intermediate (12th)', institution: 'Little Scholars, Kashipur', year: '2019', tag: '74%' },
-  { degree: 'High School (10th)', institution: 'Little Scholars, Kashipur', year: '2017', tag: '8.2 CGPA' },
+  {
+    degree: 'M.Sc. Analytics',
+    institution: 'Tata Institute of Social Sciences (TISS), Mumbai',
+    year: '2025 – 2027',
+    tag: 'Pursuing',
+  },
+  {
+    degree: 'B.Sc. Hotel & Hospitality Administration',
+    institution: 'Ambedkar Institute of Hotel Management & Catering Technology, Chandigarh',
+    year: '2019 – 2022',
+    tag: '74%',
+  },
 ];
 
 const About = () => {
@@ -23,24 +31,27 @@ const About = () => {
       <SectionHeader
         index="01"
         eyebrow="About"
-        title="From HR floors to"
-        italic="analytics dashboards."
-        description="Three years across L&D, HR generalist work, and now data science — I bring a people-first lens to every dataset I touch."
+        title="From HR and L&amp;D into"
+        italic="data analytics."
+        description="An M.Sc. Analytics student at TISS Mumbai, combining people-domain experience with analytics training."
       />
 
       <div className="grid lg:grid-cols-12 gap-8">
         {/* Bio column */}
         <div className="lg:col-span-7 lux-glass p-8 md:p-10 relative">
-          <div className="eyebrow mb-6">Bio</div>
+          <div className="eyebrow mb-6">Profile</div>
           <p className="text-lg md:text-xl leading-relaxed text-foreground/90 text-pretty">
-            I started in hospitality, moved through <span className="lux-text-brand">Human Resources & L&D</span>, and today I build data products that make workforce decisions <em className="display-italic">measurable</em>. I care about the story behind the numbers — who they represent, what they change, and who acts on them.
+            I'm an <span className="lux-text-brand">M.Sc. Analytics student at TISS Mumbai</span>, transitioning from HR and Learning &amp; Development into data analytics.
           </p>
           <p className="mt-6 text-muted-foreground leading-relaxed">
-            Currently pursuing M.Sc. Analytics at TISS Mumbai. I work fluently across Python, SQL, Power BI, and Streamlit — with active projects in attrition modeling, financial analytics, and geospatial studies.
+            My HR and L&amp;D background gives me business and people-domain context — how workforce data is created, what managers actually decide with it, and where reporting breaks down. My analytics training adds the technical side: I use Excel, Power BI, SQL and Python to clean, analyse and visualise data, identify patterns, and support decisions with evidence rather than assumption.
+          </p>
+          <p className="mt-6 text-muted-foreground leading-relaxed">
+            I'm focused on data analyst, business analyst and HR / people analytics roles where both sides matter.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            {['People Analytics', 'ML for HR', 'Financial Analytics', 'Business Intelligence', 'Geospatial'].map((t) => (
+            {['Data Analysis', 'Dashboard Development', 'KPI & MIS Reporting', 'HR & People Analytics', 'Business Intelligence'].map((t) => (
               <span key={t} className="lux-chip">{t}</span>
             ))}
           </div>
@@ -52,7 +63,7 @@ const About = () => {
             </div>
             <div>
               <div className="mono text-[10px] uppercase tracking-widest text-muted-foreground">Focus</div>
-              <div className="mt-1 flex items-center gap-2"><Sparkles className="w-4 h-4 text-accent" /> People &amp; BI Analytics</div>
+              <div className="mt-1 flex items-center gap-2"><Sparkles className="w-4 h-4 text-accent" /> Data &amp; People Analytics</div>
             </div>
           </div>
         </div>

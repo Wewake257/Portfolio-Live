@@ -4,38 +4,28 @@ import SectionHeader from './SectionHeader';
 
 const experiences = [
   {
-    company: 'OrgaKnow',
-    role: 'Data Science Intern — AI Solutions',
-    period: 'Dec 2025 — Present',
-    location: 'Remote',
-    achievements: [
-      'Built HR attrition prediction and employee performance analysis models using Python (Pandas, NumPy) and structured CSV-based pipelines',
-      'Performed EDA and developed web-based Streamlit dashboards with role-based access (CHRO, HRBP, Manager)',
-      'Implemented classification-style risk scoring, KPI-weighted features, and prescriptive analytics using historical workforce data',
-    ],
-  },
-  {
-    company: 'BJT Global',
+    company: 'Bartiya Janta Trader Pvt. Ltd.',
     role: 'HR Generalist',
-    period: 'Dec 2023 — Aug 2024',
-    location: 'Remote',
-    achievements: [
-      'Refined and enforced HR policies in compliance with labor laws and company goals, fostering a compliant work environment',
-      'Spearheaded the performance appraisal process — providing constructive feedback and identifying training needs',
-      'Maintained and analyzed HR data to generate insights, enabling data-driven decision-making for workforce trends',
-      'Designed interactive dashboards using Excel and Power BI for clear visualization of key HR metrics',
-    ],
-  },
-  {
-    company: 'Barbeque Nation',
-    role: 'Management Trainee — L&D · HR',
-    period: 'Jun 2022 — Oct 2023',
+    period: 'Dec 2023 — Current',
     location: 'India',
     achievements: [
-      'Designed and executed training programs, boosting productivity by 25% and reducing turnover by 20%',
-      'Coordinated workshops and seminars, improving performance by 30% and customer satisfaction by 15%',
-      'Created manuals, onboarding materials, and videos for long-term training use',
-      'Reviewed and edited training content for accuracy, compliance, and brand alignment',
+      'Manage day-to-day HR operations across onboarding, records management and employee lifecycle documentation',
+      'Maintain employee master data and prepare recurring HR reports for management review',
+      'Track headcount, attendance and joining/exit data in Excel to keep workforce records reporting-ready',
+      'Coordinate across functions on policy queries, compliance documentation and internal communication',
+    ],
+  },
+  {
+    company: 'Barbeque Nation · Fulki Communication Pvt. Ltd.',
+    role: 'Assistant Learning & Development Manager / HR Generalist',
+    period: 'Jan 2023 — Nov 2023',
+    location: 'India',
+    achievements: [
+      'Designed and delivered training programs, improving team productivity and reducing turnover across the units supported',
+      'Standardised training SOPs and created manuals, onboarding material and learning content for long-term reuse',
+      'Supported the performance appraisal cycle — feedback conversations, documentation and training-need identification',
+      'Coordinated workshops with unit managers and business stakeholders, tracking participation and completion',
+      'Reviewed learning content for accuracy, compliance and brand alignment before rollout',
     ],
   },
 ];
@@ -54,8 +44,9 @@ const Experience = () => {
       <SectionHeader
         index="05"
         eyebrow="Experience"
-        title="Three years, three"
-        italic="disciplines converging."
+        title="HR &amp; L&amp;D roles, read through"
+        italic="an analytics lens."
+        description="Three years in people-facing roles — process, data and reporting responsibilities that now feed directly into analytics work."
       />
 
       <div className="relative">
@@ -76,7 +67,7 @@ const Experience = () => {
                 <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                   <div>
                     <div className="mono text-[10px] uppercase tracking-widest text-primary mb-1">0{i + 1}</div>
-                    <h3 className="display-serif text-3xl md:text-4xl leading-none">{exp.company}</h3>
+                    <h3 className="display-serif text-2xl md:text-3xl leading-tight">{exp.company}</h3>
                     <div className="mt-2 text-sm md:text-base text-foreground/80">{exp.role}</div>
                   </div>
                   <div className="flex flex-col items-end gap-1.5 text-xs mono">
