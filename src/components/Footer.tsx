@@ -10,14 +10,14 @@ const Footer = () => {
             Vivek <em className="display-italic lux-text-brand">Kumar</em>
           </div>
           <p className="mt-4 text-muted-foreground max-w-sm">
-            Aspiring data science & business analyst — building people-first analytics from Mumbai.
+            M.Sc. Analytics student at TISS Mumbai — data analysis, dashboards and HR / people analytics.
           </p>
         </div>
 
         <div>
           <div className="eyebrow mb-4">Navigate</div>
           <ul className="space-y-2 text-sm">
-            {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((l) => (
+            {['About', 'Skills', 'Projects', 'Process', 'Experience', 'Contact'].map((l) => (
               <li key={l}>
                 <a href={`#${l.toLowerCase()}`} className="text-foreground/80 hover:text-primary transition-colors inline-flex items-center gap-1.5 group">
                   {l}
