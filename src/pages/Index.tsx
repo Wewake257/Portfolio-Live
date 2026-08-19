@@ -5,7 +5,7 @@ import Marquee from '@/components/Marquee';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
-import MetricsStrip from '@/components/MetricsStrip';
+import HowIWork from '@/components/HowIWork';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -14,9 +14,12 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Vivek Kumar — Data Science & People Analytics</title>
-        <meta name="description" content="Portfolio of Vivek Kumar — aspiring Data Science / Business Analyst intern working across People Analytics, machine learning, and BI dashboards. TISS Mumbai." />
-        <link rel="canonical" href="https://vivek-kumar-portfolio.lovable.app" />
+        <title>Vivek Kumar | Data Analyst | HR Analytics | TISS</title>
+        <meta
+          name="description"
+          content="Vivek Kumar — M.Sc. Analytics student at TISS Mumbai. Data analyst focused on HR & people analytics, dashboards and reporting with Excel, Power BI, SQL and Python."
+        />
+        <link rel="canonical" href="https://wewake257.lovable.app" />
       </Helmet>
 
       <div className="min-h-screen">
@@ -27,7 +30,7 @@ const Index = () => {
           <About />
           <Skills />
           <Projects />
-          <MetricsStrip />
+          <HowIWork />
           <Experience />
           <Contact />
         </main>
