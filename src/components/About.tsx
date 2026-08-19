@@ -31,7 +31,7 @@ const About = () => {
       <SectionHeader
         index="01"
         eyebrow="About"
-        title="From HR and L&amp;D into"
+        title="From HR and L&D into"
         italic="data analytics."
         description="An M.Sc. Analytics student at TISS Mumbai, combining people-domain experience with analytics training."
       />

@@ -44,7 +44,7 @@ const Experience = () => {
       <SectionHeader
         index="05"
         eyebrow="Experience"
-        title="HR &amp; L&amp;D roles, read through"
+        title="HR & L&D roles, read through"
         italic="an analytics lens."
         description="Three years in people-facing roles — process, data and reporting responsibilities that now feed directly into analytics work."
       />
