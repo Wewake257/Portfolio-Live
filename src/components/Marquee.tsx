@@ -1,18 +1,16 @@
 const items = [
-  'Python',
-  'SQL',
+  'Advanced Excel',
   'Power BI',
-  'Streamlit',
+  'SQL',
+  'Python',
+  'DAX',
+  'Power Query',
   'Pandas',
-  'NumPy',
-  'Excel',
-  'Tableau',
-  'Gradio',
-  'QGIS',
-  'Machine Learning',
-  'People Analytics',
+  'Streamlit',
   'EDA',
-  'Feature Engineering',
+  'Data Modeling',
+  'HR Analytics',
+  'KPI Reporting',
 ];
 
 const Marquee = () => {

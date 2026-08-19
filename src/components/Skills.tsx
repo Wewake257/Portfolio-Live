@@ -1,19 +1,53 @@
-import { BarChart3, Brain, Code2, Database, FileSpreadsheet, LineChart, PieChart, Users, Wrench, Sparkles } from 'lucide-react';
+import { BarChart3, Brain, Database, Users, Wrench, Sparkles, Code2, FileSpreadsheet, LineChart, PieChart } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import SectionHeader from './SectionHeader';
 
 const primary = [
-  { name: 'Python', pct: 88, icon: Code2 },
+  { name: 'Advanced Excel', pct: 92, icon: FileSpreadsheet },
+  { name: 'Power BI (DAX, Power Query)', pct: 88, icon: BarChart3 },
   { name: 'SQL', pct: 82, icon: Database },
-  { name: 'Power BI', pct: 90, icon: BarChart3 },
-  { name: 'Excel', pct: 92, icon: FileSpreadsheet },
-  { name: 'Streamlit', pct: 78, icon: LineChart },
+  { name: 'Python', pct: 85, icon: Code2 },
+  { name: 'Streamlit', pct: 75, icon: LineChart },
 ];
 
-const ml = ['EDA', 'Feature Engineering', 'Classification Models', 'Risk Scoring', 'Statistical Analysis'];
-const tools = ['Pandas', 'NumPy', 'Streamlit', 'Gradio', 'Tableau', 'QGIS', 'Jupyter'];
-const hrSystems = ['HRSS', 'LMS', 'Frontlyn', 'Betterplace', 'ZingHR', 'ZingLearn'];
-const soft = ['Analytical thinking', 'Problem solving', 'Collaboration', 'Stakeholder mgmt', 'Adaptability'];
+const dataAnalytics = [
+  'Dashboard Development',
+  'KPI / MIS Reporting',
+  'Reporting Automation',
+  'Data Tracking',
+  'Power Pivot',
+  'DAX',
+  'Power Query',
+];
+
+const dataScience = [
+  'EDA',
+  'ETL',
+  'Data Preprocessing',
+  'Feature Engineering',
+  'Statistical Analysis',
+  'Classification Models',
+  'Machine Learning',
+  'Data Modeling',
+];
+
+const tools = ['Jupyter', 'R', 'QGIS', 'Microsoft SQL Server 2022', 'Streamlit'];
+
+const domain = [
+  'HR Analytics',
+  'People Analytics',
+  'Workforce Analytics',
+  'Performance Management',
+  'Learning & Development',
+];
+
+const soft = [
+  'Analytical thinking',
+  'Problem solving',
+  'Stakeholder communication',
+  'Presentation',
+  'Cross-functional collaboration',
+];
 
 const Skills = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
@@ -28,19 +62,19 @@ const Skills = () => {
     >
       <SectionHeader
         index="02"
-        eyebrow="Capabilities"
-        title="A stack built for"
-        italic="decision-grade analytics."
+        eyebrow="Skills"
+        title="A toolkit built for"
+        italic="analysis and reporting."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5 auto-rows-[minmax(140px,auto)]">
-        {/* Primary skills — tall tile */}
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5">
+        {/* Core proficiency */}
         <div className="lux-glass p-7 md:col-span-3 md:row-span-2 flex flex-col">
           <div className="flex items-center justify-between mb-4">
-            <div className="eyebrow">Primary</div>
+            <div className="eyebrow">Core tools</div>
             <Sparkles className="w-4 h-4 text-primary" />
           </div>
-          <h3 className="display-serif text-3xl mb-6">Core proficiency</h3>
+          <h3 className="display-serif text-3xl mb-6">Data analytics stack</h3>
           <div className="space-y-5 mt-auto">
             {primary.map((s) => (
               <div key={s.name}>
@@ -61,14 +95,25 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* ML & Analytics */}
+        {/* Analytics & reporting */}
+        <div className="lux-glass lux-glass-hover p-6 md:col-span-3">
+          <div className="flex items-center gap-2 mb-4">
+            <BarChart3 className="w-4 h-4 text-primary" />
+            <div className="eyebrow">Analytics &amp; reporting</div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {dataAnalytics.map((t) => <span key={t} className="lux-chip lux-chip-primary">{t}</span>)}
+          </div>
+        </div>
+
+        {/* Data science & statistics */}
         <div className="lux-glass lux-glass-hover p-6 md:col-span-3">
           <div className="flex items-center gap-2 mb-4">
             <Brain className="w-4 h-4 text-accent" />
-            <div className="eyebrow">ML & Analytics</div>
+            <div className="eyebrow">Data science &amp; statistics</div>
           </div>
           <div className="flex flex-wrap gap-2">
-            {ml.map((t) => <span key={t} className="lux-chip lux-chip-accent">{t}</span>)}
+            {dataScience.map((t) => <span key={t} className="lux-chip lux-chip-accent">{t}</span>)}
           </div>
         </div>
 
@@ -76,28 +121,21 @@ const Skills = () => {
         <div className="lux-glass lux-glass-hover p-6 md:col-span-2">
           <div className="flex items-center gap-2 mb-4">
             <Wrench className="w-4 h-4 text-primary" />
-            <div className="eyebrow">Tools</div>
+            <div className="eyebrow">Tools &amp; platforms</div>
           </div>
           <div className="flex flex-wrap gap-2">
             {tools.map((t) => <span key={t} className="lux-chip">{t}</span>)}
           </div>
         </div>
 
-        {/* Pull quote */}
-        <div className="lux-glass p-6 md:col-span-4 flex items-center">
-          <p className="display-serif text-xl md:text-2xl leading-snug text-balance">
-            "The best analytics tell you <em className="display-italic lux-text-brand">what to do next</em>, not just what happened."
-          </p>
-        </div>
-
-        {/* HR Systems */}
-        <div className="lux-glass lux-glass-hover p-6 md:col-span-4">
+        {/* Domain */}
+        <div className="lux-glass lux-glass-hover p-6 md:col-span-2">
           <div className="flex items-center gap-2 mb-4">
             <Users className="w-4 h-4 text-primary" />
-            <div className="eyebrow">HR Systems</div>
+            <div className="eyebrow">Domain</div>
           </div>
           <div className="flex flex-wrap gap-2">
-            {hrSystems.map((t) => <span key={t} className="lux-chip">{t}</span>)}
+            {domain.map((t) => <span key={t} className="lux-chip">{t}</span>)}
           </div>
         </div>
 
@@ -110,7 +148,7 @@ const Skills = () => {
           <ul className="space-y-1.5 text-sm text-foreground/85">
             {soft.map((s) => (
               <li key={s} className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-primary" /> {s}
+                <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" /> {s}
               </li>
             ))}
           </ul>
