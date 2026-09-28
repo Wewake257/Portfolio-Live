@@ -68,7 +68,7 @@ const categories: Category[] = [
           'Top decile captures 4.2x natural churn rate',
           'Automated inference microservice with prescriptive retention actions'
         ],
-        githubLink: 'https://github.com/Wewake257/AI-Retention-Intelligence',
+        githubLink: 'https://github.com/Wewake257/Enterprise-Customer-Churn-Intelligence',
         icon: Brain,
         image: churnAnalyticsImg,
       },
@@ -82,7 +82,7 @@ const categories: Category[] = [
           'Champion ML classification tournament achieving 0.988 ROC-AUC',
           '5-tier composite alpha signal delivering 100% precision on Strong Buy catalysts'
         ],
-        githubLink: 'https://github.com/Wewake257/Financial-Reporting-Analysis',
+        githubLink: 'https://github.com/Wewake257/Stock-Earnings-Sentiment-Intelligence',
         icon: LineChart,
         image: stockEarningsImg,
       },
@@ -96,7 +96,7 @@ const categories: Category[] = [
           'VIP Champions generating 66% of GMV from 22% of customer base',
           'Kaplan-Meier survival curves identifying 90-day churn inflection cliff'
         ],
-        githubLink: 'https://github.com/Wewake257/Supply-Chain-Data-Analysis',
+        githubLink: 'https://github.com/Wewake257/Ecommerce-Attribution-CLV-Intelligence',
         icon: BarChart3,
         image: ecommerceAttributionImg,
       },
@@ -110,8 +110,34 @@ const categories: Category[] = [
           '10,000-iteration Monte Carlo Value-at-Risk (VaR 99%) portfolio simulation',
           'Isolation Forest fraud detection pipeline processing sub-second transactions'
         ],
-        githubLink: 'https://github.com/Wewake257/Portfolio-Management-Risk-Analysis-Python',
+        githubLink: 'https://github.com/Wewake257/Bank-Analytics-Portfolio',
         icon: DollarSign,
+      },
+      {
+        title: 'GE Shipping Commercial Voyage Economics & Fleet Analytics',
+        description: 'Institutional maritime analytics modeling commercial fleet operations, voyage TCE (Time Charter Equivalent) margins, and bunker fuel consumption curves across global trade routes.',
+        techStack: ['Python', 'Maritime Economics', 'TCE Optimization', 'Fuel Efficiency', 'Port Operations'],
+        highlights: [
+          'Daily TCE margin optimization across Suezmax, Aframax & Capesize vessels',
+          'Bunker fuel consumption curves modeled at service vs laden speeds',
+          'Fact-Dimension data warehouse architecture mapping global port networks',
+          'Demurrage exposure and voyage turnaround latency reduction'
+        ],
+        githubLink: 'https://github.com/Wewake257/GE-Shipping-Vessel-Analytics',
+        icon: Briefcase,
+      },
+      {
+        title: 'Zinnia Process Engineering & Quality Analytics',
+        description: 'Industrial process engineering suite featuring automated Value Stream Mapping, cycle-time bottleneck identification, ETL audit reconciliation, and customer retention analytics.',
+        techStack: ['Python', 'Process Mining', 'Cycle Time Analytics', 'ETL Audit', 'Quality Engineering'],
+        highlights: [
+          'End-to-end Value Stream Mapping isolating cycle-time bottlenecks',
+          'Operational productivity & first-pass yield quality dashboards',
+          'Automated ETL transaction reconciliation and discrepancy flagging',
+          'Post-issue customer retention and lifecycle analytics'
+        ],
+        githubLink: 'https://github.com/Wewake257/Zinnia-Process-Engineering',
+        icon: Sparkles,
       },
     ],
   },
