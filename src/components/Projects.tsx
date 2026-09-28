@@ -139,14 +139,6 @@ const categories: Category[] = [
         githubLink: 'https://github.com/Wewake257/Zinnia-Process-Engineering',
         icon: Sparkles,
       },
-      {
-        title: 'Data Analytics Portfolio (Umbrella)',
-        description: 'Comprehensive institutional data analytics & quantitative intelligence portfolio spanning churn, PEAD sentiment, marketing attribution, and banking analytics.',
-        techStack: ['Python', 'Machine Learning', 'Quantitative Finance', 'NLP'],
-        highlights: ['Cross-domain analytics showcase', 'Churn & retention modeling', 'PEAD sentiment intelligence', 'Marketing attribution engines'],
-        githubLink: 'https://github.com/Wewake257/Data-Analytics-Portfolio',
-        icon: BarChart3,
-      },
     ],
   },
   {
@@ -236,22 +228,6 @@ const categories: Category[] = [
         githubLink: 'https://github.com/Wewake257/IC-Dashboard-Automation-Financial-Intelligence-System-Python-Excel',
         icon: Briefcase,
       },
-      {
-        title: 'Financial Statement Analysis',
-        description: 'Analysis of corporate financial statements to evaluate profitability, liquidity, and solvency through ratio analysis and trend evaluation.',
-        techStack: ['Python', 'Excel', 'Ratio Analysis'],
-        highlights: ['Profitability & liquidity ratios', 'Trend analysis', 'Financial health evaluation'],
-        githubLink: 'https://github.com/Wewake257/Financial-Statement-Analysis',
-        icon: FileSpreadsheet,
-      },
-      {
-        title: 'Financial Reporting Analysis',
-        description: 'Structured analysis of financial reports to extract performance insights and support data-driven decision-making.',
-        techStack: ['Python', 'Excel', 'Financial Reporting'],
-        highlights: ['Report parsing & structuring', 'Performance metrics', 'Decision-ready insights'],
-        githubLink: 'https://github.com/Wewake257/Financial-Reporting-Analysis',
-        icon: Calculator,
-      },
     ],
   },
   {
@@ -307,22 +283,6 @@ const categories: Category[] = [
         highlights: ['District-level migration comparison', 'Literacy distribution patterns'],
         githubLink: 'https://github.com/Wewake257/Migration-and-Literacy-Analysis-',
         icon: BarChart3,
-      },
-      {
-        title: 'Supply Chain Data Analysis',
-        description: 'End-to-end supply chain data analysis covering inventory, logistics, and operational efficiency metrics.',
-        techStack: ['Python', 'Pandas', 'Data Visualization'],
-        highlights: ['Inventory analysis', 'Logistics metrics', 'Operational efficiency insights'],
-        githubLink: 'https://github.com/Wewake257/Supply-Chain-Data-Analysis',
-        icon: Briefcase,
-      },
-      {
-        title: 'JPL Internship – Final Project',
-        description: 'Capstone analytics work completed during the JPL internship, applying data analysis techniques to real business problems.',
-        techStack: ['Python', 'Data Analysis', 'Reporting'],
-        highlights: ['Internship capstone deliverable', 'Applied analytics workflow', 'Business insight generation'],
-        githubLink: 'https://github.com/Wewake257/JPL-Internship-Final',
-        icon: Code,
       },
     ],
   },
@@ -519,7 +479,7 @@ const Projects = () => {
             Projects &amp; <em className="display-italic lux-text-brand">case studies.</em>
           </h2>
           <p className="mt-4 max-w-xl text-muted-foreground">
-            30+ shipped projects across machine learning, finance, applications, Python analysis, SQL, business intelligence, and geospatial studies.
+            20+ shipped projects across machine learning, finance, applications, Python analysis, SQL, business intelligence, and geospatial studies.
           </p>
         </div>
         <a
