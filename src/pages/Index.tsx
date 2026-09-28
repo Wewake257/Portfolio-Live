@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import Marquee from '@/components/Marquee';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
+import BentoGridInteractive from '@/components/BentoGridInteractive';
 import Projects from '@/components/Projects';
 import HowIWork from '@/components/HowIWork';
 import Experience from '@/components/Experience';
@@ -14,10 +15,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Vivek Kumar | Data Analyst | HR Analytics | TISS</title>
+        <title>Vivek Kumar | Quantitative Data Analyst & ML Engineer | TISS</title>
         <meta
           name="description"
-          content="Vivek Kumar — M.Sc. Analytics student at TISS Mumbai. Data analyst focused on HR & people analytics, dashboards and reporting with Excel, Power BI, SQL and Python."
+          content="Vivek Kumar — M.Sc. Analytics (TISS Mumbai). Quantitative Data Analyst & Machine Learning Engineer specializing in Enterprise Churn, PEAD Sentiment Intelligence, Marketing Attribution & Banking Analytics."
         />
         <link rel="canonical" href="https://wewake257.lovable.app" />
       </Helmet>
@@ -29,6 +30,7 @@ const Index = () => {
           <Marquee />
           <About />
           <Skills />
+          <BentoGridInteractive />
           <Projects />
           <HowIWork />
           <Experience />
