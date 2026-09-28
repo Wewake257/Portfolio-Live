@@ -40,12 +40,12 @@ const Hero = () => {
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-foreground/90">
-              M.Sc. Analytics Student <span className="text-muted-foreground">|</span> Data Analyst{' '}
-              <span className="text-muted-foreground">|</span> HR &amp; People Analytics
+              M.Sc. Analytics (TISS) <span className="text-muted-foreground">|</span> Quantitative Data Analyst{' '}
+              <span className="text-muted-foreground">|</span> Machine Learning &amp; Financial Intelligence
             </p>
 
             <p className="mt-5 max-w-xl text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
-              Turning business and people data into clear insights, dashboards, and decisions.
+              Transforming complex enterprise, financial, and customer data into high-conviction predictive models, algorithmic attribution engines, and strategic decisions.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">

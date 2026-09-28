@@ -21,13 +21,17 @@ import {
   LineChart,
   FileSpreadsheet,
   Calculator,
-  Monitor
+  Monitor,
+  Sparkles
 } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import attritionPredictor2Img from '@/assets/attrition-predictor-2.png';
 import weatherApiImg from '@/assets/weather-api-dashboard.png';
 import coffeeShopImg from '@/assets/coffee-shop-dashboard.png';
 import superstoreImg from '@/assets/superstore-powerbi.png';
+import churnAnalyticsImg from '@/assets/enterprise-churn-analytics.png';
+import stockEarningsImg from '@/assets/stock-earnings-intelligence.png';
+import ecommerceAttributionImg from '@/assets/ecommerce-attribution-clv.png';
 
 interface Project {
   title: string;
@@ -48,6 +52,69 @@ interface Category {
 }
 
 const categories: Category[] = [
+  {
+    id: 'flagship',
+    title: 'Enterprise & Quantitative Intelligence (Flagship)',
+    icon: Sparkles,
+    color: 'primary',
+    projects: [
+      {
+        title: 'Enterprise Customer Churn Intelligence & Financial Retention Platform',
+        description: 'Institutional machine learning platform predicting customer attrition, calibrating probabilities (Isotonic/Sigmoid), and optimizing Net Retained Revenue ($) via financial expected value threshold tuning.',
+        techStack: ['Python', 'LightGBM', 'XGBoost', 'Probability Calibration', 'SHAP Explainability', 'Decile Lift'],
+        highlights: [
+          '0.842 ROC-AUC & 0.655 PR-AUC model tournament',
+          'Calibrated decision threshold at p=0.28 maximizing Net Retained $',
+          'Top decile captures 4.2x natural churn rate',
+          'Automated inference microservice with prescriptive retention actions'
+        ],
+        githubLink: 'https://github.com/Wewake257/AI-Retention-Intelligence',
+        icon: Brain,
+        image: churnAnalyticsImg,
+      },
+      {
+        title: 'Stock Earnings Surprise & Financial NLP Sentiment Intelligence',
+        description: 'Quantitative capital markets intelligence platform analyzing 2,000 quarterly earnings releases across 48 equities using Loughran-McDonald NLP and Post-Earnings Announcement Drift (PEAD) modeling.',
+        techStack: ['Python', 'Financial NLP', 'PEAD Anomaly', 'Scikit-Learn', 'SciPy Z-Score', 'Seaborn'],
+        highlights: [
+          'Domain Loughran-McDonald NLP yielding +18% price reaction correlation boost',
+          'Quantified PEAD drift persistence across 30-day holding windows',
+          'Champion ML classification tournament achieving 0.988 ROC-AUC',
+          '5-tier composite alpha signal delivering 100% precision on Strong Buy catalysts'
+        ],
+        githubLink: 'https://github.com/Wewake257/Financial-Reporting-Analysis',
+        icon: LineChart,
+        image: stockEarningsImg,
+      },
+      {
+        title: 'E-Commerce Marketing Attribution & Customer Lifetime Value (CLV)',
+        description: 'Algorithmic multi-touch attribution platform evaluating 586k+ customer touchpoints and 541k+ transactions; built First-Order Markov Chain with Removal Effects, Shapley Values, RFM segmentation, and Kaplan-Meier survival curves.',
+        techStack: ['Python', 'Markov Chains', 'Shapley Values', 'Lifelines', 'Kaplan-Meier', 'RFM Segmentation'],
+        highlights: [
+          'First-Order Markov removal effects resolving 31% Last-Touch over-crediting error',
+          'Projected +14.2% blended Return on Ad Spend (ROAS) via budget reallocation',
+          'VIP Champions generating 66% of GMV from 22% of customer base',
+          'Kaplan-Meier survival curves identifying 90-day churn inflection cliff'
+        ],
+        githubLink: 'https://github.com/Wewake257/Supply-Chain-Data-Analysis',
+        icon: BarChart3,
+        image: ecommerceAttributionImg,
+      },
+      {
+        title: 'Digital Banking Analytics & Credit Risk Portfolio Engine',
+        description: 'End-to-end quantitative banking analytics engine encompassing Basel-compliant Probability of Default (PD) credit scoring, RFM transaction segmentation, Markowitz/Monte Carlo stress-testing, and real-time fraud anomaly detection.',
+        techStack: ['Python', 'Credit Risk (PD)', 'Monte Carlo', 'RFM Segmentation', 'Isolation Forest', 'Markowitz'],
+        highlights: [
+          'Logistic Regression & WoE credit risk scorecard achieving 0.887 ROC-AUC',
+          'Markov & RFM digital banking churn segmentation',
+          '10,000-iteration Monte Carlo Value-at-Risk (VaR 99%) portfolio simulation',
+          'Isolation Forest fraud detection pipeline processing sub-second transactions'
+        ],
+        githubLink: 'https://github.com/Wewake257/Portfolio-Management-Risk-Analysis-Python',
+        icon: DollarSign,
+      },
+    ],
+  },
   {
     id: 'ml',
     title: 'Machine Learning & HR Analytics',

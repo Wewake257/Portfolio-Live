@@ -21,24 +21,26 @@ const dataAnalytics = [
 ];
 
 const dataScience = [
-  'EDA',
-  'ETL',
-  'Data Preprocessing',
+  'LightGBM & XGBoost',
+  'Multi-Touch Attribution',
+  'Markov Chains & Shapley',
+  'Kaplan-Meier Survival S(t)',
+  'Probability Calibration',
+  'SHAP Explainability',
   'Feature Engineering',
-  'Statistical Analysis',
-  'Classification Models',
-  'Machine Learning',
-  'Data Modeling',
+  'Statistical Modeling',
+  'Monte Carlo Simulation',
 ];
 
-const tools = ['Jupyter', 'R', 'QGIS', 'Microsoft SQL Server 2022', 'Streamlit'];
+const tools = ['Python', 'SQL Server', 'Power BI', 'Streamlit', 'Jupyter', 'Git', 'R', 'QGIS'];
 
 const domain = [
-  'HR Analytics',
-  'People Analytics',
-  'Workforce Analytics',
-  'Performance Management',
-  'Learning & Development',
+  'Enterprise Churn & Retention',
+  'Capital Markets & Financial NLP',
+  'E-Commerce & Marketing Attribution',
+  'Credit Risk (PD Scoring)',
+  'HR & People Analytics',
+  'Commercial Voyage Economics',
 ];
 
 const soft = [
