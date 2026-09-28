@@ -1,16 +1,15 @@
 const items = [
+  'Quantitative Analytics',
+  'LightGBM & XGBoost',
+  'Python & SQL',
+  'Multi-Touch Attribution',
+  'Basel PD Credit Risk',
+  'Power BI & DAX',
+  'Monte Carlo Simulation',
+  'PEAD Alpha Signals',
+  'SHAP Explainability',
   'Advanced Excel',
-  'Power BI',
-  'SQL',
-  'Python',
-  'DAX',
-  'Power Query',
-  'Pandas',
-  'Streamlit',
-  'EDA',
-  'Data Modeling',
-  'HR Analytics',
-  'KPI Reporting',
+  'Customer Churn Intelligence',
 ];
 
 const Marquee = () => {

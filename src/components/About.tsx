@@ -30,24 +30,24 @@ const About = () => {
     >
       <SectionHeader
         index="01"
-        eyebrow="About"
-        title="From HR and L&D into"
-        italic="data analytics."
-        description="An M.Sc. Analytics student at TISS Mumbai, combining people-domain experience with analytics training."
+        eyebrow="Background"
+        title="Quantitative Analytics &"
+        italic="Machine Learning."
+        description="M.Sc. Analytics candidate at TISS Mumbai specializing in predictive modeling, capital markets NLP, and high-impact algorithmic attribution."
       />
 
       <div className="grid lg:grid-cols-12 gap-8">
         {/* Bio column */}
         <div className="lg:col-span-7 lux-glass p-8 md:p-10 relative">
-          <div className="eyebrow mb-6">Profile</div>
+          <div className="eyebrow mb-6">Profile &amp; Focus</div>
           <p className="text-lg md:text-xl leading-relaxed text-foreground/90 text-pretty">
-            I'm an <span className="lux-text-brand">M.Sc. Analytics student at TISS Mumbai</span>, transitioning from HR and Learning &amp; Development into data analytics.
+            I am an <span className="lux-text-brand">M.Sc. Analytics candidate at TISS Mumbai</span>, engineering production-grade machine learning pipelines, quantitative financial risk models, and algorithmic decision systems.
           </p>
-          <p className="mt-6 text-muted-foreground leading-relaxed">
-            My HR and L&amp;D background gives me business and people-domain context — how workforce data is created, what managers actually decide with it, and where reporting breaks down. My analytics training adds the technical side: I use Excel, Power BI, SQL and Python to clean, analyse and visualise data, identify patterns, and support decisions with evidence rather than assumption.
+          <p className="mt-5 text-muted-foreground leading-relaxed">
+            My work focuses on bridging statistical rigor with executive enterprise ROI: calibrating churn probabilities to optimize net retained revenue, modeling post-earnings announcement drift (PEAD) using Loughran-McDonald NLP, and solving multi-touch marketing attribution via First-Order Markov Chains and Shapley values.
           </p>
-          <p className="mt-6 text-muted-foreground leading-relaxed">
-            I'm focused on data analyst, business analyst and HR / people analytics roles where both sides matter.
+          <p className="mt-5 text-muted-foreground leading-relaxed">
+            Equipped with Python (LightGBM, XGBoost, Scikit-Learn), SQL, Power BI, and Monte Carlo simulation techniques, I build end-to-end analytics platforms that replace guesswork with mathematical conviction.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">

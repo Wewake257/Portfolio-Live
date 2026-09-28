@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -157,11 +157,16 @@
 
   .light body::before { opacity: 0.25; mix-blend-mode: multiply; }
 
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.011em;
+  }
+
   h1, h2, h3, h4 {
-    font-family: 'Instrument Serif', 'Cormorant Garamond', serif;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.02;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
   }
 
   ::selection {
@@ -186,16 +191,16 @@
   }
 
   .display-serif {
-    font-family: 'Instrument Serif', serif;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
   }
 
   .display-italic {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    font-weight: 400;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-style: normal;
+    font-weight: 800;
   }
 
   .mono {
