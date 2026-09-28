@@ -89,16 +89,6 @@ const Hero = () => {
               {/* Ambient glow */}
               <div className="absolute -inset-10 bg-grad-brand-soft blur-3xl opacity-70 animate-drift pointer-events-none" />
 
-              {/* 3D scene */}
-              <div className="absolute inset-0 rounded-[2rem] overflow-hidden">
-                {mounted && !reducedMotion ? (
-                  <Suspense fallback={<div className="w-full h-full bg-grad-brand-soft" />}>
-                    <HeroScene />
-                  </Suspense>
-                ) : (
-                  <div className="w-full h-full bg-grad-brand opacity-40" />
-                )}
-              </div>
 
               {/* Portrait medallion */}
               <div className="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 w-40 h-40 md:w-48 md:h-48 rounded-full lux-glass overflow-hidden shadow-lux-ambient">
