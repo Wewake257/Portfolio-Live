@@ -1,31 +1,55 @@
-import { Calendar, MapPin } from 'lucide-react';
+import React from 'react';
+import { Calendar, MapPin, Briefcase } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import SectionHeader from './SectionHeader';
 
 const experiences = [
   {
-    company: 'Bartiya Janta Trader Pvt. Ltd.',
-    role: 'HR Generalist',
-    period: 'Dec 2023 — Current',
-    location: 'India',
+    company: 'Jio Platforms Limited',
+    role: 'Predictive Analyst Intern',
+    period: 'Jun 2026 – Aug 2026',
+    location: 'Mumbai, India',
+    type: 'Internship',
     achievements: [
-      'Manage day-to-day HR operations across onboarding, records management and employee lifecycle documentation',
-      'Maintain employee master data and prepare recurring HR reports for management review',
-      'Track headcount, attendance and joining/exit data in Excel to keep workforce records reporting-ready',
-      'Coordinate across functions on policy queries, compliance documentation and internal communication',
+      'Architected an end-to-end Predictive Classification Engine in Python (Scikit-Learn, Pandas) to forecast operational performance and customer behavioral patterns across 100,000+ transaction logs, boosting model reliability by ~18%.',
+      'Formulated Success Profile Analysis using supervised classification algorithms to detect early attrition vulnerabilities and identify high-value cohorts, informing proactive retention strategies.',
+      'Engineered dynamic Power BI reporting dashboards using complex DAX measures, Star-Schema relational data modeling, and automated KPI alert thresholds to deliver real-time operational insights directly to executive leadership.',
     ],
   },
   {
-    company: 'Barbeque Nation · Fulki Communication Pvt. Ltd.',
-    role: 'Assistant Learning & Development Manager / HR Generalist',
-    period: 'Jan 2023 — Nov 2023',
+    company: 'OrgaKnow',
+    role: 'Data Science Intern – AI Solutions',
+    period: 'Dec 2025 – Feb 2026',
     location: 'India',
+    type: 'Internship',
     achievements: [
-      'Designed and delivered training programs, improving team productivity and reducing turnover across the units supported',
-      'Standardised training SOPs and created manuals, onboarding material and learning content for long-term reuse',
-      'Supported the performance appraisal cycle — feedback conversations, documentation and training-need identification',
-      'Coordinated workshops with unit managers and business stakeholders, tracking participation and completion',
-      'Reviewed learning content for accuracy, compliance and brand alignment before rollout',
+      'Engineered automated data ingestion and schema validation pipelines in Python processing 10,000+ enterprise records, reducing manual ETL data preparation overhead by 60%.',
+      'Designed standardized relational data architecture (fact–dimension models, input mapping dictionaries) to harmonize multi-source transaction datasets across inconsistent operational schemas.',
+      'Implemented automated reconciliation audit controls including roll-up validation and period-over-period variance testing to guarantee 100% audit-ready reporting integrity across stakeholder teams.',
+    ],
+  },
+  {
+    company: 'BJT Global',
+    role: 'HR & Operations Analyst',
+    period: 'Dec 2023 – Aug 2024',
+    location: 'India',
+    type: 'Full-time',
+    achievements: [
+      'Automated business operations data pipelines by integrating enterprise HRMS data via Python and Excel (Power Query, Power Pivot) for executive reporting and workforce analytics.',
+      'Analyzed employee datasets in Python to identify productivity trends and absenteeism anomalies; crafted data-driven executive decks with statistical visualizations for strategic leadership planning.',
+      'Authored, version-controlled, and rolled out Standard Operating Procedures (SOPs) and training manuals for six business processes, facilitating team workshops that reduced procedural non-conformance by 15%.',
+    ],
+  },
+  {
+    company: 'Barbeque Nation Hospitality',
+    role: 'Assistant Manager (L&D / Operations) · Management Trainee',
+    period: 'Jun 2022 – Oct 2023',
+    location: 'India',
+    type: 'Full-time',
+    achievements: [
+      'Mapped service-delivery workflows (arrival → ordering → fulfillment → exit) across two restaurant units; eliminated seven non-value-adding bottlenecks, reducing average per-cover service time by 12%.',
+      'Leveraged advanced Excel (Power Query M transformations, Power Pivot, Dynamic Arrays) and diagnostic KPI monitoring to model unit throughput, driving a 25% operational productivity gain.',
+      'Built performance tracking dashboards and conducted daily quality checklist audits, directly contributing to a 20% reduction in staff turnover and a 20% decline in customer complaints.',
     ],
   },
 ];
@@ -43,48 +67,52 @@ const Experience = () => {
     >
       <SectionHeader
         index="05"
-        eyebrow="Experience"
-        title="HR & L&D roles, read through"
-        italic="an analytics lens."
-        description="Three years in people-facing roles — process, data and reporting responsibilities that now feed directly into analytics work."
+        eyebrow="Work Experience"
+        title="Professional Experience &"
+        italic="Industry Internships."
+        description="2 Years and 5 Months of verified industry experience across predictive modeling, automated ETL data engineering, and operational KPI analytics."
       />
 
-      <div className="relative">
+      <div className="relative max-w-4xl mx-auto">
         {/* Vertical rail */}
-        <div className="absolute left-4 md:left-6 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-border to-transparent" />
+        <div className="absolute left-4 md:left-6 top-2 bottom-2 w-px bg-gradient-to-b from-indigo-500 via-border to-transparent" />
 
         <div className="space-y-10">
           {experiences.map((exp, i) => (
-            <div key={exp.company} className="relative pl-14 md:pl-20 group">
+            <div key={exp.company} className="relative pl-12 md:pl-16 group">
               {/* Node */}
               <div className="absolute left-0 top-1">
-                <div className="w-8 h-8 md:w-12 md:h-12 rounded-full lux-glass flex items-center justify-center shadow-lux">
-                  <div className="w-2 h-2 rounded-full bg-grad-brand shadow-lux-glow" />
+                <div className="w-9 h-9 md:w-12 md:h-12 rounded-2xl bg-slate-900 border border-indigo-500/30 flex items-center justify-center shadow-lg group-hover:border-indigo-500 transition-colors">
+                  <Briefcase className="w-4 h-4 text-indigo-400" />
                 </div>
               </div>
 
-              <div className="lux-glass lux-glass-hover p-6 md:p-8">
-                <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+              <div className="bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] hover:border-indigo-500/30 rounded-3xl p-6 md:p-8 transition-all duration-300 shadow-xl">
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                   <div>
-                    <div className="mono text-[10px] uppercase tracking-widest text-primary mb-1">0{i + 1}</div>
-                    <h3 className="display-serif text-2xl md:text-3xl leading-tight">{exp.company}</h3>
-                    <div className="mt-2 text-sm md:text-base text-foreground/80">{exp.role}</div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="mono text-[10px] uppercase tracking-wider text-indigo-400 font-semibold px-2 py-0.5 rounded-md bg-indigo-500/10 border border-indigo-500/20">
+                        {exp.type}
+                      </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white font-sans">{exp.company}</h3>
+                    <div className="mt-1 text-sm md:text-base font-medium text-indigo-300">{exp.role}</div>
                   </div>
-                  <div className="flex flex-col items-end gap-1.5 text-xs mono">
-                    <span className="flex items-center gap-1.5 text-muted-foreground">
-                      <Calendar className="w-3 h-3" /> {exp.period}
+                  <div className="flex flex-col items-end gap-1 text-xs font-mono text-slate-400">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-indigo-400" /> {exp.period}
                     </span>
-                    <span className="flex items-center gap-1.5 text-muted-foreground">
-                      <MapPin className="w-3 h-3" /> {exp.location}
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-slate-400" /> {exp.location}
                     </span>
                   </div>
                 </div>
 
-                <ul className="space-y-2.5 mt-4">
+                <ul className="space-y-2.5 mt-5">
                   {exp.achievements.map((a, j) => (
-                    <li key={j} className="flex items-start gap-3 text-sm md:text-[15px] text-foreground/85 leading-relaxed">
-                      <span className="mt-2 w-1 h-1 rounded-full bg-primary flex-shrink-0" />
-                      {a}
+                    <li key={j} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
+                      <span>{a}</span>
                     </li>
                   ))}
                 </ul>
