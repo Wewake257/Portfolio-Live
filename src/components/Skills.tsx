@@ -1,4 +1,35 @@
-import { BarChart3, Brain, Database, Users, Wrench, Sparkles, Code2, FileSpreadsheet, LineChart, PieChart, ShieldCheck, Factory } from 'lucide-react';
+import { 
+  BarChart3, 
+  Brain, 
+  Database, 
+  Users, 
+  Wrench, 
+  Sparkles, 
+  Code2, 
+  FileSpreadsheet, 
+  LineChart, 
+  PieChart, 
+  ShieldCheck, 
+  Factory,
+  TrendingUp,
+  GitBranch,
+  Layers,
+  Cpu,
+  Workflow,
+  Search,
+  Target,
+  CheckSquare,
+  Boxes,
+  Gauge,
+  Zap,
+  Award,
+  Presentation,
+  CheckCircle2,
+  Sliders,
+  Table,
+  Binary,
+  FileCheck
+} from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import SectionHeader from './SectionHeader';
 
@@ -7,70 +38,70 @@ const primary = [
   { name: 'Power BI (DAX, Star-Schema Relational Modeling)', pct: 92, icon: BarChart3 },
   { name: 'SQL (PostgreSQL, MySQL, CTEs, Window Functions)', pct: 90, icon: Database },
   { name: 'Python (Pandas, NumPy, Scikit-Learn, SciPy, LightGBM)', pct: 88, icon: Code2 },
-  { name: 'Alteryx & Automated ETL Pipelines', pct: 82, icon: LineChart },
+  { name: 'Alteryx & Automated ETL Pipelines', pct: 82, icon: Workflow },
 ];
 
 const biAndAnalytics = [
-  'Power BI (DAX Measures)',
-  'Star-Schema Relational Modeling',
-  'Tableau (LOD & Parameters)',
-  'Power Query M Transformations',
-  'Power Pivot Data Models',
-  'What-If Sensitivity Tables',
-  'KPI Scorecards & MIS Decks',
-  'Executive Storylining',
+  { name: 'Power BI (DAX Measures)', icon: BarChart3 },
+  { name: 'Star-Schema Relational Modeling', icon: Layers },
+  { name: 'Tableau (LOD & Parameters)', icon: PieChart },
+  { name: 'Power Query M Transformations', icon: Workflow },
+  { name: 'Power Pivot Data Models', icon: Table },
+  { name: 'What-If Sensitivity Tables', icon: Sliders },
+  { name: 'KPI Scorecards & MIS Decks', icon: FileSpreadsheet },
+  { name: 'Executive Storylining', icon: Presentation },
 ];
 
 const mlAndQuantitative = [
-  'Credit Risk Scorecards (PD/LGD)',
-  'Weight of Evidence (WOE) & IV',
-  'Supervised Classification',
-  'LightGBM & XGBoost',
-  'Time-Series Forecasting',
-  'Markowitz MPT & Monte Carlo',
-  'Value at Risk (VaR / CVaR)',
-  'Multi-Touch Attribution',
-  'Markov Chains & Shapley',
-  'A/B Hypothesis Testing',
+  { name: 'Credit Risk Scorecards (PD/LGD)', icon: ShieldCheck },
+  { name: 'Weight of Evidence (WOE) & IV', icon: Gauge },
+  { name: 'Supervised Classification', icon: Binary },
+  { name: 'LightGBM & XGBoost', icon: Zap },
+  { name: 'Time-Series Forecasting', icon: TrendingUp },
+  { name: 'Markowitz MPT & Monte Carlo', icon: Target },
+  { name: 'Value at Risk (VaR / CVaR)', icon: ShieldCheck },
+  { name: 'Multi-Touch Attribution', icon: Layers },
+  { name: 'Markov Chains & Shapley', icon: Brain },
+  { name: 'A/B Hypothesis Testing', icon: CheckCircle2 },
 ];
 
 const processEngineering = [
-  'Lean Six Sigma (DMAIC)',
-  'Value Stream Mapping (VSM)',
-  'Root-Cause Analysis (5-Whys)',
-  'Fishbone Diagramming',
-  'First-Pass Yield (FPY)',
-  'Cycle-Time Reduction',
-  'Defect Pareto Analysis',
-  'SOP Authoring & Compliance',
+  { name: 'Lean Six Sigma (DMAIC)', icon: Factory },
+  { name: 'Value Stream Mapping (VSM)', icon: Workflow },
+  { name: 'Root-Cause Analysis (5-Whys)', icon: Search },
+  { name: 'Fishbone Diagramming', icon: GitBranch },
+  { name: 'First-Pass Yield (FPY)', icon: Award },
+  { name: 'Cycle-Time Reduction', icon: Gauge },
+  { name: 'Defect Pareto Analysis', icon: BarChart3 },
+  { name: 'SOP Authoring & Compliance', icon: FileCheck },
 ];
 
 const dataEngineering = [
-  'Automated ETL Pipelines',
-  'Schema Validation Scripts',
-  'Audit Reconciliation Controls',
-  'Roll-Up Variance Validation',
-  'Fact-Dimension Modeling',
-  'Git & GitHub Version Control',
-  'Streamlit Applications',
-  'AWS EC2 Foundations',
+  { name: 'Automated ETL Pipelines', icon: Cpu },
+  { name: 'Schema Validation Scripts', icon: CheckSquare },
+  { name: 'Audit Reconciliation Controls', icon: FileCheck },
+  { name: 'Roll-Up Variance Validation', icon: Sliders },
+  { name: 'Fact-Dimension Modeling', icon: Boxes },
+  { name: 'Git & GitHub Version Control', icon: GitBranch },
+  { name: 'Streamlit Applications', icon: Code2 },
+  { name: 'AWS EC2 Foundations', icon: Database },
 ];
 
 const domainExpertise = [
-  'Banking & Credit Risk Modeling',
-  'Operations Throughput Diagnostics',
-  'Enterprise Customer Retention',
-  'Financial Statement & DCF Valuation',
-  'HR & Workforce Analytics',
-  'Commercial Logistics & Supply Chain',
+  { name: 'Banking & Credit Risk Modeling', icon: ShieldCheck },
+  { name: 'Operations Throughput Diagnostics', icon: Gauge },
+  { name: 'Enterprise Customer Retention', icon: Users },
+  { name: 'Financial Statement & DCF Valuation', icon: LineChart },
+  { name: 'HR & Workforce Analytics', icon: Users },
+  { name: 'Commercial Logistics & Supply Chain', icon: Boxes },
 ];
 
 const softSkills = [
-  'Analytical & Critical Thinking',
-  'Executive Presentation & Decks',
-  'Cross-Functional Stakeholder Alignment',
-  'Root-Cause Troubleshooting',
-  'Data-Driven Decision Making',
+  { name: 'Analytical & Critical Thinking', icon: Brain },
+  { name: 'Executive Presentation & Decks', icon: Presentation },
+  { name: 'Cross-Functional Stakeholder Alignment', icon: Users },
+  { name: 'Root-Cause Troubleshooting', icon: Search },
+  { name: 'Data-Driven Decision Making', icon: Target },
 ];
 
 const Skills = () => {
@@ -138,7 +169,15 @@ const Skills = () => {
             <div className="eyebrow">BI, Analytics &amp; Reporting</div>
           </div>
           <div className="flex flex-wrap gap-2">
-            {biAndAnalytics.map((t) => <span key={t} className="lux-chip lux-chip-primary text-xs">{t}</span>)}
+            {biAndAnalytics.map((item) => (
+              <span
+                key={item.name}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-2/80 hover:bg-primary/10 border border-white/5 hover:border-primary/30 transition-all text-xs text-foreground/90 font-medium group"
+              >
+                <item.icon className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform shrink-0" />
+                <span>{item.name}</span>
+              </span>
+            ))}
           </div>
         </div>
 
@@ -149,7 +188,15 @@ const Skills = () => {
             <div className="eyebrow">Predictive ML &amp; Quantitative Risk</div>
           </div>
           <div className="flex flex-wrap gap-2">
-            {mlAndQuantitative.map((t) => <span key={t} className="lux-chip lux-chip-accent text-xs">{t}</span>)}
+            {mlAndQuantitative.map((item) => (
+              <span
+                key={item.name}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-2/80 hover:bg-accent/10 border border-white/5 hover:border-accent/30 transition-all text-xs text-foreground/90 font-medium group"
+              >
+                <item.icon className="w-3.5 h-3.5 text-accent group-hover:scale-110 transition-transform shrink-0" />
+                <span>{item.name}</span>
+              </span>
+            ))}
           </div>
         </div>
 
@@ -160,7 +207,15 @@ const Skills = () => {
             <div className="eyebrow">Process Engineering (Six Sigma)</div>
           </div>
           <div className="flex flex-wrap gap-2">
-            {processEngineering.map((t) => <span key={t} className="lux-chip text-xs">{t}</span>)}
+            {processEngineering.map((item) => (
+              <span
+                key={item.name}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-2/80 hover:bg-primary/10 border border-white/5 hover:border-primary/30 transition-all text-xs text-foreground/90 font-medium group"
+              >
+                <item.icon className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform shrink-0" />
+                <span>{item.name}</span>
+              </span>
+            ))}
           </div>
         </div>
 
@@ -171,7 +226,15 @@ const Skills = () => {
             <div className="eyebrow">Data Engineering &amp; ETL</div>
           </div>
           <div className="flex flex-wrap gap-2">
-            {dataEngineering.map((t) => <span key={t} className="lux-chip text-xs">{t}</span>)}
+            {dataEngineering.map((item) => (
+              <span
+                key={item.name}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-2/80 hover:bg-primary/10 border border-white/5 hover:border-primary/30 transition-all text-xs text-foreground/90 font-medium group"
+              >
+                <item.icon className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform shrink-0" />
+                <span>{item.name}</span>
+              </span>
+            ))}
           </div>
         </div>
 
@@ -182,7 +245,15 @@ const Skills = () => {
             <div className="eyebrow">Domain Expertise</div>
           </div>
           <div className="flex flex-wrap gap-2">
-            {domainExpertise.map((t) => <span key={t} className="lux-chip text-xs">{t}</span>)}
+            {domainExpertise.map((item) => (
+              <span
+                key={item.name}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-2/80 hover:bg-accent/10 border border-white/5 hover:border-accent/30 transition-all text-xs text-foreground/90 font-medium group"
+              >
+                <item.icon className="w-3.5 h-3.5 text-accent group-hover:scale-110 transition-transform shrink-0" />
+                <span>{item.name}</span>
+              </span>
+            ))}
           </div>
         </div>
       </div>
