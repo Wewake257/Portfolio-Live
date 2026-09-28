@@ -1,22 +1,8 @@
-import { Suspense, lazy, useEffect, useState } from 'react';
 import { ArrowRight, Download, Github, Linkedin, Mail, MapPin, Sparkles } from 'lucide-react';
 import profilePhoto from '@/assets/profile-photo.jpg';
 import MagneticButton from './MagneticButton';
 
-const HeroScene = lazy(() => import('./HeroScene'));
-
 const Hero = () => {
-  const [mounted, setMounted] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mq.matches);
-    const handler = () => setReducedMotion(mq.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
-  }, []);
 
   return (
     <section id="hero" className="relative min-h-[100svh] pt-32 md:pt-40 pb-20 overflow-hidden">
