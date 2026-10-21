@@ -198,6 +198,68 @@
 
   .light .lux-nav-link[data-active="true"] { color: hsl(var(--foreground)); }
 
+  .light header nav { gap: 12px; }
+  .light header nav > .hidden.lg\:flex { gap: 16px; }
+  .light header nav > a { flex-shrink: 0; }
+  .light header .lux-btn { white-space: nowrap; }
+
+  .light :is(#about, #skills, #contact) .border-white\/5 {
+    border-color: hsl(var(--border));
+  }
+
+  /* Older interactive panels share the light-mode semantic palette. */
+  .light #executive-bento > .absolute,
+  .light #executive-bento .group > .absolute { display: none; }
+
+  .light #executive-bento [class*="bg-slate-900"],
+  .light #executive-bento .lg\:col-span-12 {
+    background: hsl(var(--card));
+    border-color: hsl(var(--border));
+    border-radius: 8px;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .light #executive-bento [class*="bg-slate-950"] {
+    background: hsl(var(--surface-1));
+    border-color: hsl(var(--border));
+    border-radius: 6px;
+  }
+
+  .light #executive-bento [class*="bg-slate-800"] {
+    background: hsl(var(--surface-3));
+  }
+
+  .light #executive-bento .text-white,
+  .light #executive-bento [class*="text-slate-200"],
+  .light #executive-bento [class*="text-slate-300"] {
+    color: hsl(var(--foreground));
+  }
+
+  .light #executive-bento [class*="text-slate-400"],
+  .light #executive-bento [class*="text-slate-500"] {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .light #executive-bento :is([class*="text-indigo-"], [class*="text-violet-"], [class*="text-cyan-"], [class*="text-purple-"]) {
+    color: hsl(var(--primary));
+  }
+
+  .light #executive-bento :is([class*="bg-indigo-500/"], [class*="bg-violet-500/"], [class*="bg-cyan-500/"]) {
+    background: hsl(var(--primary) / 0.07);
+  }
+
+  .light #executive-bento :is([class*="border-white/"], [class*="border-indigo-"], [class*="border-violet-"], [class*="border-cyan-"]) {
+    border-color: hsl(var(--border));
+  }
+
+  .light #executive-bento :is(.bg-violet-600, .bg-cyan-600, .bg-gradient-to-r:not(.lg\:col-span-12)) {
+    background: var(--gradient-brand);
+    color: hsl(var(--primary-foreground));
+    box-shadow: none;
+  }
+
+  .light #executive-bento input[type="range"] { accent-color: hsl(var(--primary)); }
+
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     letter-spacing: -0.011em;
