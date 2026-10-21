@@ -24,8 +24,8 @@ const Hero = () => {
           </div>
 
           {/* Center: photo with glow */}
-          <div className="order-1 lg:order-2 relative flex justify-center items-end self-end">
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/40 blur-[90px]" />
+          <div className="order-1 lg:order-2 relative flex justify-start items-end self-end">
+            <div className="absolute bottom-10 left-0 w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/40 blur-[90px]" />
             <div className="relative w-64 h-80 md:w-80 md:h-[28rem] overflow-hidden rounded-t-full">
               <img
                 src={profilePhoto}
