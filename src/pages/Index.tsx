@@ -15,10 +15,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Vivek Kumar | Quantitative Data Analyst & ML Engineer | TISS</title>
+        <title>Vivek Kumar | Data Analyst | HR Analytics | TISS</title>
         <meta
           name="description"
-          content="Vivek Kumar — M.Sc. Analytics (TISS Mumbai). Quantitative Data Analyst & Machine Learning Engineer specializing in Enterprise Churn, PEAD Sentiment Intelligence, Marketing Attribution & Banking Analytics."
+          content="Vivek Kumar — M.Sc. Analytics student at TISS Mumbai. Data analyst and HR and people analytics specialist turning business and people data into clear insights, dashboards, and decisions."
         />
         <link rel="canonical" href="https://wewake257.lovable.app" />
       </Helmet>
