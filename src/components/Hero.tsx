@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail, FileText } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import DepthPortrait from './DepthPortrait';
 
 const socials = [
   { href: 'https://github.com/Wewake257', label: 'GitHub', Icon: Github },
@@ -23,18 +23,9 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Center: photo with glow */}
+          {/* Center: animated photo depth */}
           <div className="order-1 lg:order-2 relative flex justify-center items-end self-end">
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/40 blur-[90px]" />
-            <div className="relative w-64 h-80 md:w-80 md:h-[28rem] overflow-hidden rounded-t-full">
-              <img
-                src={profilePhoto}
-                alt="Vivek Kumar"
-                className="w-full h-full object-cover object-center"
-                loading="eager"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background to-transparent" />
-            </div>
+            <DepthPortrait />
           </div>
 
           {/* Right: role */}
