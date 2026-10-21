@@ -30,7 +30,7 @@ const Hero = () => {
               <img
                 src={profilePhoto}
                 alt="Vivek Kumar"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-bottom scale-125 origin-bottom"
                 loading="eager"
               />
               <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background to-transparent" />
