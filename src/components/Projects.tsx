@@ -32,6 +32,8 @@ import superstoreImg from '@/assets/superstore-powerbi.png';
 import churnAnalyticsImg from '@/assets/enterprise-churn-analytics.png';
 import stockEarningsImg from '@/assets/stock-earnings-intelligence.png';
 import ecommerceAttributionImg from '@/assets/ecommerce-attribution-clv.png';
+import mutualFundImg from '@/assets/mutual-fund-analytics.png';
+import customerMarketingImg from '@/assets/customer-marketing-analytics.png';
 
 interface Project {
   title: string;
@@ -58,6 +60,47 @@ const categories: Category[] = [
     icon: Sparkles,
     color: 'primary',
     projects: [
+      {
+        title: 'Institutional Mutual Fund Analytics & Business Intelligence Platform',
+        description: 'Comprehensive investment and business intelligence platform analyzing 40 mutual fund schemes, 46,000 daily NAVs, and 32,778 retail investor transactions. Built an analytical Data Warehouse in SQLite/SQL with Star Schema, calculated rolling CAGR, Sharpe/Sortino ratios, Jensen\'s Alpha, Beta against NIFTY 50, and 99% VaR/CVaR, deployed across a 5-page interactive Power BI executive dashboard.',
+        techStack: ['Python', 'SQL (Window Functions)', 'Power BI', 'DAX', 'AMFI API', 'Star Schema Data Warehouse', 'Value at Risk (VaR)'],
+        highlights: [
+          '46,000 daily NAV time-series rows modeled in SQLite Star Schema Data Warehouse',
+          'SEBI T-30 vs B-30 geographic dispersion and retail SIP inflow/outflow trends',
+          'Rolling 30-day volatility, Jensen\'s Alpha, Beta vs NIFTY, and 99% VaR/CVaR risk models',
+          '5-page interactive Power BI executive dashboard with custom DAX telemetry'
+        ],
+        githubLink: 'https://github.com/Wewake257/Mutual-Fund-Analytics-Intelligence',
+        icon: TrendingUp,
+        image: mutualFundImg,
+      },
+      {
+        title: 'Customer & Marketing Analytics Intelligence Platform (RFM & Retention)',
+        description: 'End-to-end commercial and customer intelligence system evaluating 4,332 customer accounts and 65,085 transactions; formulated SQL NTILE(5) RFM quintiles, 24-month cohort retention matrices, 90-day inactivity churn Random Forest (0.816 ROC-AUC, 90.8% Recall), and marketing campaign propensity modeling (0.884 ROC-AUC).',
+        techStack: ['Python', 'SQL (CTEs & Window Functions)', 'Power BI', 'Scikit-Learn', 'RFM Segmentation', 'Cohort Analysis', 'Random Forest'],
+        highlights: [
+          'RFM quintiles revealing Champions (22.2%) drive 66.3% of total revenue',
+          '24-month cohort retention matrix identifying critical early churn cliffs',
+          'Random Forest churn model achieving 0.816 ROC-AUC & 90.8% Recall on 90-day thresholds',
+          'Marketing campaign response propensity lift from 5.5% in Q1 to 30.0% in Q4'
+        ],
+        githubLink: 'https://github.com/Wewake257/Customer-Marketing-Analytics-Intelligence',
+        icon: BarChart3,
+        image: customerMarketingImg,
+      },
+      {
+        title: 'CreditShield Pro — FinTech Credit Risk & Decision Intelligence Engine',
+        description: 'Interactive financial decision support terminal in Python modeling Risk-Based Pricing (RBP), Basel II/III Probability of Default (PD), and statutory 50% FOIR underwriting boundaries, featuring Counterfactual Explainable AI (XAI) solvers to optimize debt-service metrics.',
+        techStack: ['Python', 'XGBoost', 'LightGBM', 'Explainable AI (SHAP)', 'SMOTE', 'Streamlit', 'Basel Risk Modeling'],
+        highlights: [
+          'Basel-compliant Probability of Default (PD) and statutory 50% FOIR underwriting boundaries',
+          'SMOTE class imbalance handling reducing projected default exposure by 16%',
+          'Counterfactual explainable AI solvers for debt-service optimization',
+          'Interactive Streamlit decision terminal with instant risk sensitivity sliders'
+        ],
+        githubLink: 'https://github.com/Wewake257/CreditShield-Pro-App',
+        icon: DollarSign,
+      },
       {
         title: 'Enterprise Customer Churn Intelligence & Financial Retention Platform',
         description: 'Institutional machine learning platform predicting customer attrition, calibrating probabilities (Isotonic/Sigmoid), and optimizing Net Retained Revenue ($) via financial expected value threshold tuning.',

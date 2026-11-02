@@ -88,6 +88,9 @@ const dataEngineering = [
 ];
 
 const domainExpertise = [
+  { name: 'Mutual Fund & AUM Analytics', icon: LineChart },
+  { name: 'AMFI NAV & Risk Telemetry', icon: ShieldCheck },
+  { name: 'Customer Segmentation & Campaigns', icon: Users },
   { name: 'Banking & Credit Risk Modeling', icon: ShieldCheck },
   { name: 'Operations Throughput Diagnostics', icon: Gauge },
   { name: 'Enterprise Customer Retention', icon: Users },
