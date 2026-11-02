@@ -522,7 +522,7 @@ const Projects = () => {
             Projects &amp; <em className="display-italic lux-text-brand">case studies.</em>
           </h2>
           <p className="mt-4 max-w-xl text-muted-foreground">
-            20+ shipped projects across machine learning, finance, applications, Python analysis, SQL, business intelligence, and geospatial studies.
+            35 public projects on GitHub across machine learning, finance, applications, Python analysis, SQL, business intelligence, and geospatial studies.
           </p>
         </div>
         <a
